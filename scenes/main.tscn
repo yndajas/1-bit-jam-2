@@ -1,3 +1,49 @@
-[gd_scene format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=6 format=3 uid="uid://c4whslg8x66a6"]
+
+[ext_resource type="Texture2D" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
+[ext_resource type="Texture2D" path="res://assets/images/sprites/top_floor.png" id="3_5biiq"]
+[ext_resource type="Texture2D" uid="uid://d4mt8yr3348cs" path="res://assets/images/sprites/step.png" id="4_xcqgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
+size = Vector2(640, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxfe4"]
+size = Vector2(508, 6)
 
 [node name="Main" type="Node2D"]
+
+[node name="GroundFloor" type="StaticBody2D" parent="."]
+position = Vector2(320, 349)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundFloor"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(2, 2)
+texture = ExtResource("2_y1cll")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundFloor"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("RectangleShape2D_jr63u")
+
+[node name="TopFloor" type="StaticBody2D" parent="."]
+position = Vector2(386, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="TopFloor"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(2, 2)
+texture = ExtResource("3_5biiq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopFloor"]
+shape = SubResource("RectangleShape2D_gxfe4")
+
+[node name="Step" type="StaticBody2D" parent="."]
+position = Vector2(95, 289)
+
+[node name="Sprite2D" type="Sprite2D" parent="Step"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(2, 2)
+texture = ExtResource("4_xcqgm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Step"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+polygon = PackedVector2Array(24, 6, -24, 6, -26, 4, -26, -2, -22, -6, 22, -6, 26, -2, 26, 4)
+one_way_collision = true
