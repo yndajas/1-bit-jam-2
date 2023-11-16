@@ -18,6 +18,7 @@ var last_six_processes_jump_input = {
 	)
 	/ 2.0
 )
+@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
@@ -55,6 +56,13 @@ func has_hit_edge(edge: int) -> bool:
 	return x_position() + edge_offset > Global.PLAYABLE_RIGHT_EDGE
 
 
+func jump() -> void:
+	velocity.y = JUMP_VELOCITY
+	last_six_processes_jump_input.log = []
+	last_six_processes_jump_input.count = 0
+	sfx_player.play()
+
+
 func reset_if_beyond_edge() -> void:
 	if has_hit_edge(Edge.LEFT):
 		reset_to_edge(Edge.LEFT)
@@ -86,9 +94,7 @@ func set_movement(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	elif last_six_processes_jump_input.count > 0:
-		velocity.y = JUMP_VELOCITY
-		last_six_processes_jump_input.log = []
-		last_six_processes_jump_input.count = 0
+		jump()
 
 	if direction:
 		var target_velocity_x := direction * SPEED

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm1y41plkax3g"]
+[gd_scene load_steps=10 format=3 uid="uid://bm1y41plkax3g"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_8nqt3"]
 [ext_resource type="Texture2D" uid="uid://b6lmfwm3c01bc" path="res://assets/images/sprites/player/jump.png" id="1_wmlwp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7c0wk8sakia7" path="res://assets/images/sprites/player/run_1.png" id="3_uksa8"]
 [ext_resource type="Texture2D" uid="uid://b2dgu8sfyj0sv" path="res://assets/images/sprites/player/stand_0.png" id="4_adrxy"]
 [ext_resource type="Texture2D" uid="uid://dl4fpn3o4gqce" path="res://assets/images/sprites/player/stand_1.png" id="5_bykcg"]
+[ext_resource type="AudioStream" uid="uid://cn4upi1f1ewtd" path="res://assets/audio/sfx/jump.wav" id="7_fa0xj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yp6j3"]
 animations = [{
@@ -53,3 +54,6 @@ animation = &"stand"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_1hwv4")
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fa0xj")
