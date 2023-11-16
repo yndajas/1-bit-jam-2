@@ -1,15 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=15 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
 [ext_resource type="Texture2D" uid="uid://0l8c70d4yabt" path="res://assets/images/sprites/top_floor.png" id="3_5biiq"]
 [ext_resource type="PackedScene" uid="uid://pjep2os2ctfo" path="res://scenes/step.tscn" id="3_dylbd"]
 [ext_resource type="PackedScene" uid="uid://bm1y41plkax3g" path="res://scenes/player.tscn" id="4_i60v0"]
+[ext_resource type="Texture2D" uid="uid://crwi0244e411l" path="res://assets/images/sprites/counter.png" id="5_uxhni"]
+[ext_resource type="Texture2D" uid="uid://bpkl0vucyjtb4" path="res://assets/images/sprites/coffee_machine.png" id="6_3662i"]
+[ext_resource type="Texture2D" uid="uid://cdwuw5kl2hp57" path="res://assets/images/sprites/speaker.png" id="7_dl1n7"]
+[ext_resource type="Texture2D" uid="uid://bwt6jdrehamh" path="res://assets/images/sprites/oat_milk.png" id="8_vcwob"]
+[ext_resource type="Texture2D" uid="uid://b0qtsctbixbr5" path="res://assets/images/sprites/table.png" id="9_bfqyb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
 size = Vector2(640, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxfe4"]
 size = Vector2(508, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qagx8"]
+size = Vector2(51, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isrpq"]
+size = Vector2(30, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_250ft"]
+size = Vector2(26, 16)
 
 [node name="Main" type="Node2D"]
 
@@ -47,3 +61,58 @@ position = Vector2(88, 208)
 
 [node name="Player" parent="." instance=ExtResource("4_i60v0")]
 position = Vector2(192, 306)
+
+[node name="Counter" type="Sprite2D" parent="."]
+position = Vector2(388, 321)
+scale = Vector2(2, 2)
+texture = ExtResource("5_uxhni")
+
+[node name="CoffeeMachine" type="Area2D" parent="."]
+position = Vector2(287, 286)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="CoffeeMachine"]
+texture = ExtResource("6_3662i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeMachine"]
+shape = SubResource("RectangleShape2D_qagx8")
+
+[node name="Speaker" type="Area2D" parent="."]
+position = Vector2(506, 287)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Speaker"]
+texture = ExtResource("7_dl1n7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Speaker"]
+shape = SubResource("RectangleShape2D_isrpq")
+
+[node name="OatMilk" type="Area2D" parent="."]
+position = Vector2(408, 288)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D0" type="Sprite2D" parent="OatMilk"]
+position = Vector2(-7, 0)
+texture = ExtResource("8_vcwob")
+
+[node name="Sprite2D1" type="Sprite2D" parent="OatMilk"]
+position = Vector2(7, 0)
+texture = ExtResource("8_vcwob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OatMilk"]
+shape = SubResource("RectangleShape2D_250ft")
+
+[node name="Table0" type="Sprite2D" parent="."]
+position = Vector2(290, 140)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bfqyb")
+
+[node name="Table1" type="Sprite2D" parent="."]
+position = Vector2(403, 140)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bfqyb")
+
+[node name="Table2" type="Sprite2D" parent="."]
+position = Vector2(509, 140)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bfqyb")
