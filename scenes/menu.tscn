@@ -1,3 +1,29 @@
-[gd_scene format=3 uid="uid://cyo5o3v8pywuu"]
+[gd_scene load_steps=5 format=3 uid="uid://cyo5o3v8pywuu"]
+
+[ext_resource type="Texture2D" uid="uid://b2dgu8sfyj0sv" path="res://assets/images/sprites/player/stand_0.png" id="1_5wowv"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_biwwy"]
+[ext_resource type="Texture2D" uid="uid://dl4fpn3o4gqce" path="res://assets/images/sprites/player/stand_1.png" id="2_hd2js"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u1nu8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5wowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hd2js")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="Menu" type="Node2D"]
+script = ExtResource("1_biwwy")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 152)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_u1nu8")
+frame = 1
+frame_progress = 0.082792
