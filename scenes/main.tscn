@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=20 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/speaker.gd" id="9_6v32g"]
 [ext_resource type="Texture2D" uid="uid://b0qtsctbixbr5" path="res://assets/images/sprites/table.png" id="9_bfqyb"]
 [ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="10_mf6td"]
+[ext_resource type="Script" path="res://scripts/oat_milk.gd" id="11_hxc5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
 size = Vector2(640, 22)
@@ -96,9 +97,11 @@ texture = ExtResource("7_dl1n7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speaker"]
 shape = SubResource("RectangleShape2D_isrpq")
 
-[node name="OatMilk" type="Area2D" parent="."]
+[node name="OatMilk" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(408, 288)
 scale = Vector2(2, 2)
+script = ExtResource("11_hxc5e")
+player = NodePath("../Player")
 
 [node name="Sprite2D0" type="Sprite2D" parent="OatMilk"]
 position = Vector2(-7, 0)
@@ -139,3 +142,5 @@ text = "16:30"
 [connection signal="body_exited" from="CoffeeMachine" to="CoffeeMachine" method="_on_body_exited"]
 [connection signal="body_entered" from="Speaker" to="Speaker" method="_on_body_entered"]
 [connection signal="body_exited" from="Speaker" to="Speaker" method="_on_body_exited"]
+[connection signal="body_entered" from="OatMilk" to="OatMilk" method="_on_body_entered"]
+[connection signal="body_exited" from="OatMilk" to="OatMilk" method="_on_body_exited"]
