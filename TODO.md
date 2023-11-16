@@ -38,11 +38,10 @@
     - success before 17:30: 1 star ("I'm going to be late for the gym :'(")
     - no success at 17:30: 0 stars ("We don't pay overtime! Get out of here!")
   - stop main input/physics processes, take restart/return to menu input
-- add title screen
 
 ## Stretch goals
 
-- add sound effects
+- add other sound effects
 - make original scene a tutorial level then add another level with customemrs
   randomly spawning until 17:00
 - add music
@@ -67,3 +66,5 @@
 - add coffee machine, oat milk, and speaker with collision detection
 - add jump buffering
 - add 1 hour timer
+- add title screen
+- add jump sound effect
