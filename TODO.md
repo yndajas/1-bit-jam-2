@@ -7,8 +7,8 @@
     <!-- - render input prompt: "Q" to drink -->
     - on input, render vomit in random spot and send signal
   - on speaker
-    <!-- - render input prompt: "Q" to raise volume/play music -->
-    - on input, render crack in random spot and send signal
+    - render icon? (or will this show all the time to indicate state?)
+    - on input, render crack in random spot
   - on vomit
     <!-- - render input prompt: "E" to clean -->
     - if input > N seconds, derender
@@ -70,3 +70,5 @@
   - on coffee machine
     - in working state, on input, switch to broken state and send signal
     - in broken state, if input > N seconds, switch to working state
+  - on speaker
+    - on input, send signal

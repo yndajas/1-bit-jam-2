@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=19 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cdwuw5kl2hp57" path="res://assets/images/sprites/speaker.png" id="7_dl1n7"]
 [ext_resource type="Script" path="res://scripts/coffee_machine.gd" id="7_wl6x2"]
 [ext_resource type="Texture2D" uid="uid://bwt6jdrehamh" path="res://assets/images/sprites/oat_milk.png" id="8_vcwob"]
+[ext_resource type="Script" path="res://scripts/speaker.gd" id="9_6v32g"]
 [ext_resource type="Texture2D" uid="uid://b0qtsctbixbr5" path="res://assets/images/sprites/table.png" id="9_bfqyb"]
 [ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="10_mf6td"]
 
@@ -83,9 +84,11 @@ texture = ExtResource("6_3662i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeMachine"]
 shape = SubResource("RectangleShape2D_qagx8")
 
-[node name="Speaker" type="Area2D" parent="."]
+[node name="Speaker" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(506, 287)
 scale = Vector2(2, 2)
+script = ExtResource("9_6v32g")
+player = NodePath("../Player")
 
 [node name="Sprite2D" type="Sprite2D" parent="Speaker"]
 texture = ExtResource("7_dl1n7")
@@ -134,3 +137,5 @@ text = "16:30"
 
 [connection signal="body_entered" from="CoffeeMachine" to="CoffeeMachine" method="_on_body_entered"]
 [connection signal="body_exited" from="CoffeeMachine" to="CoffeeMachine" method="_on_body_exited"]
+[connection signal="body_entered" from="Speaker" to="Speaker" method="_on_body_entered"]
+[connection signal="body_exited" from="Speaker" to="Speaker" method="_on_body_exited"]
