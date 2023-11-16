@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=18 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://crwi0244e411l" path="res://assets/images/sprites/counter.png" id="5_uxhni"]
 [ext_resource type="Texture2D" uid="uid://bpkl0vucyjtb4" path="res://assets/images/sprites/coffee_machine.png" id="6_3662i"]
 [ext_resource type="Texture2D" uid="uid://cdwuw5kl2hp57" path="res://assets/images/sprites/speaker.png" id="7_dl1n7"]
+[ext_resource type="Script" path="res://scripts/coffee_machine.gd" id="7_wl6x2"]
 [ext_resource type="Texture2D" uid="uid://bwt6jdrehamh" path="res://assets/images/sprites/oat_milk.png" id="8_vcwob"]
 [ext_resource type="Texture2D" uid="uid://b0qtsctbixbr5" path="res://assets/images/sprites/table.png" id="9_bfqyb"]
 [ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="10_mf6td"]
@@ -70,9 +71,11 @@ position = Vector2(388, 321)
 scale = Vector2(2, 2)
 texture = ExtResource("5_uxhni")
 
-[node name="CoffeeMachine" type="Area2D" parent="."]
+[node name="CoffeeMachine" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(287, 286)
 scale = Vector2(2, 2)
+script = ExtResource("7_wl6x2")
+player = NodePath("../Player")
 
 [node name="Sprite2D" type="Sprite2D" parent="CoffeeMachine"]
 texture = ExtResource("6_3662i")
@@ -128,3 +131,6 @@ offset_bottom = 40.0
 theme = ExtResource("10_mf6td")
 theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
 text = "16:30"
+
+[connection signal="body_entered" from="CoffeeMachine" to="CoffeeMachine" method="_on_body_entered"]
+[connection signal="body_exited" from="CoffeeMachine" to="CoffeeMachine" method="_on_body_exited"]
