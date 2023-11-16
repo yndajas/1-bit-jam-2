@@ -5,6 +5,10 @@ const SPEED: float = 200.0
 const JUMP_VELOCITY: float = -350.0
 var direction: float = 0.0
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var last_six_processes_jump_input = {
+	"log": [],
+	"count": 0,
+}
 @onready var edge_offset: float = (
 	(
 		$AnimatedSprite2D
@@ -18,12 +22,26 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta: float) -> void:
+	capture_jump_input()
 	direction = Input.get_axis("move_left", "move_right")
+
 	set_animation()
 	set_orientation()
 	set_movement(delta)
 	move_and_slide()
 	reset_if_beyond_edge()
+
+
+func capture_jump_input() -> void:
+	var this_process_jump_pressed: bool = Input.is_action_just_pressed("jump")
+	last_six_processes_jump_input.log.push_back(this_process_jump_pressed)
+
+	if this_process_jump_pressed:
+		last_six_processes_jump_input.count += 1
+	if last_six_processes_jump_input.log.size() > 6:
+		var seventh_last_process_jump_pressed: bool = last_six_processes_jump_input.log.pop_front()
+		if seventh_last_process_jump_pressed:
+			last_six_processes_jump_input.count -= 1
 
 
 func has_hit_edge(edge: int) -> bool:
@@ -63,8 +81,10 @@ func set_animation() -> void:
 func set_movement(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	elif Input.is_action_just_pressed("jump"):
+	elif last_six_processes_jump_input.count > 0:
 		velocity.y = JUMP_VELOCITY
+		last_six_processes_jump_input.log = []
+		last_six_processes_jump_input.count = 0
 
 	if direction:
 		var target_velocity_x := direction * SPEED
