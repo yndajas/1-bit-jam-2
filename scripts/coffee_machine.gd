@@ -1,5 +1,6 @@
 extends Area2D
 
+signal coffee_machine_broken
 @export var player: CharacterBody2D
 var fixed: bool = true
 var interaction_time: float = 0.0
@@ -12,6 +13,7 @@ func _physics_process(delta: float) -> void:
 			Global.track_fixable(self, delta)
 		elif Input.is_action_just_pressed("interact"):
 			fixed = false
+			emit_signal("coffee_machine_broken")
 			print_debug("broken")
 
 
