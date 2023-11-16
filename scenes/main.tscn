@@ -50,13 +50,13 @@ texture = ExtResource("3_5biiq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopFloor"]
 shape = SubResource("RectangleShape2D_gxfe4")
 
-[node name="Step" parent="." instance=ExtResource("3_dylbd")]
+[node name="Step0" parent="." instance=ExtResource("3_dylbd")]
 position = Vector2(97, 295)
 
-[node name="Step2" parent="." instance=ExtResource("3_dylbd")]
+[node name="Step1" parent="." instance=ExtResource("3_dylbd")]
 position = Vector2(40, 251)
 
-[node name="Step3" parent="." instance=ExtResource("3_dylbd")]
+[node name="Step2" parent="." instance=ExtResource("3_dylbd")]
 position = Vector2(88, 208)
 
 [node name="Player" parent="." instance=ExtResource("4_i60v0")]
