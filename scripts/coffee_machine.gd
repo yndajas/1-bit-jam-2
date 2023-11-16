@@ -1,24 +1,17 @@
 extends Area2D
 
 @export var player: CharacterBody2D
-var broken: bool = false
+var fixed: bool = true
 var interaction_time: float = 0.0
 var player_in_range: bool = false
 
 
 func _physics_process(delta: float) -> void:
 	if player_in_range:
-		if broken:
-			if Input.is_action_pressed("interact"):
-				interaction_time += delta
-				if interaction_time > 2:
-					broken = false
-					interaction_time = 0
-					print_debug("fixed")
-			elif Input.is_action_just_released("interact"):
-				interaction_time -= delta
+		if !fixed:
+			Global.track_fixable(self, delta)
 		elif Input.is_action_just_pressed("interact"):
-			broken = true
+			fixed = false
 			print_debug("broken")
 
 
