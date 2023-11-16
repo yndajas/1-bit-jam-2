@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=7 format=3 uid="uid://c4whslg8x66a6"]
 
-[ext_resource type="Texture2D" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
-[ext_resource type="Texture2D" path="res://assets/images/sprites/top_floor.png" id="3_5biiq"]
+[ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
+[ext_resource type="Texture2D" uid="uid://0l8c70d4yabt" path="res://assets/images/sprites/top_floor.png" id="3_5biiq"]
 [ext_resource type="PackedScene" uid="uid://pjep2os2ctfo" path="res://scenes/step.tscn" id="3_dylbd"]
+[ext_resource type="PackedScene" uid="uid://bm1y41plkax3g" path="res://scenes/player.tscn" id="4_i60v0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
 size = Vector2(640, 22)
@@ -43,3 +44,6 @@ position = Vector2(40, 251)
 
 [node name="Step3" parent="." instance=ExtResource("3_dylbd")]
 position = Vector2(88, 208)
+
+[node name="Player" parent="." instance=ExtResource("4_i60v0")]
+position = Vector2(192, 306)
