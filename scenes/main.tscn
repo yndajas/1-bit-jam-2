@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=21 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b0qtsctbixbr5" path="res://assets/images/sprites/table.png" id="9_bfqyb"]
 [ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="10_mf6td"]
 [ext_resource type="Script" path="res://scripts/oat_milk.gd" id="11_hxc5e"]
+[ext_resource type="PackedScene" uid="uid://clqeebn4ppuyf" path="res://scenes/spillage.tscn" id="15_8a5r1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
 size = Vector2(640, 22)
@@ -66,7 +67,7 @@ position = Vector2(40, 251)
 position = Vector2(88, 208)
 
 [node name="Player" parent="." instance=ExtResource("4_i60v0")]
-position = Vector2(192, 306)
+position = Vector2(193, 274)
 
 [node name="Counter" type="Sprite2D" parent="."]
 position = Vector2(388, 321)
@@ -128,6 +129,10 @@ texture = ExtResource("9_bfqyb")
 position = Vector2(509, 140)
 scale = Vector2(2, 2)
 texture = ExtResource("9_bfqyb")
+
+[node name="Spillage" parent="." node_paths=PackedStringArray("player") instance=ExtResource("15_8a5r1")]
+position = Vector2(126, 336)
+player = NodePath("../Player")
 
 [node name="ClockText" type="RichTextLabel" parent="."]
 offset_left = 8.0
