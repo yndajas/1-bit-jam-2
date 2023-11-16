@@ -2,20 +2,18 @@
 
 - add player collision detection
   - on coffee machine
-    - render input prompt: "Q" to break; "E" to fix
-    - in working state, on input, switch to broken state and send signal
-    - in broken state, if input > N seconds, switch to working state
+    - render icon? (or will this show all the time to indicate state?)
   - on oat milk
-    - render input prompt: "Q" to drink
+    <!-- - render input prompt: "Q" to drink -->
     - on input, render vomit in random spot and send signal
   - on speaker
-    - render input prompt: "Q" to raise volume/play music
+    <!-- - render input prompt: "Q" to raise volume/play music -->
     - on input, render crack in random spot and send signal
   - on vomit
-    - render input prompt: "E" to clean
+    <!-- - render input prompt: "E" to clean -->
     - if input > N seconds, derender
   - on crack
-    - render input prompt: "E" to tape/fix
+    <!-- - render input prompt: "E" to tape/fix -->
     - if input > N seconds, derender (or switch to taped state if a taped sprite
       is available)
 - add customers
@@ -68,3 +66,7 @@
 - add 1 hour timer
 - add title screen
 - add jump sound effect
+- add player collision detection
+  - on coffee machine
+    - in working state, on input, switch to broken state and send signal
+    - in broken state, if input > N seconds, switch to working state
