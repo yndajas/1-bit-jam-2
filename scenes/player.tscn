@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bm1y41plkax3g"]
+[gd_scene load_steps=9 format=3 uid="uid://bm1y41plkax3g"]
 
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_8nqt3"]
 [ext_resource type="Texture2D" uid="uid://b6lmfwm3c01bc" path="res://assets/images/sprites/player/jump.png" id="1_wmlwp"]
 [ext_resource type="Texture2D" uid="uid://csoabg1dgbvse" path="res://assets/images/sprites/player/run_0.png" id="2_lle5g"]
 [ext_resource type="Texture2D" uid="uid://c7c0wk8sakia7" path="res://assets/images/sprites/player/run_1.png" id="3_uksa8"]
@@ -43,6 +44,7 @@ animations = [{
 height = 50.0
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_8nqt3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yp6j3")
