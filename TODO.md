@@ -1,6 +1,5 @@
 # To do
 
-- add 1 hour or 30 minute timer ending at 17:00
 - add player collision detection
   - on coffee machine
     - render input prompt: "Q" to break; "E" to fix
@@ -67,3 +66,4 @@
 - add counter and tables
 - add coffee machine, oat milk, and speaker with collision detection
 - add jump buffering
+- add 1 hour timer
