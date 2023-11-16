@@ -3,6 +3,7 @@ extends CharacterBody2D
 enum Edge { LEFT, RIGHT }
 const SPEED: float = 200.0
 const JUMP_VELOCITY: float = -350.0
+const STANDING_ANIMATION_EDGE_GAP: int = 2
 var direction: float = 0.0
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var last_six_processes_jump_input = {
@@ -11,12 +12,16 @@ var last_six_processes_jump_input = {
 }
 @onready var edge_offset: float = (
 	(
-		$AnimatedSprite2D
-		. get_sprite_frames()
-		. get_frame_texture($AnimatedSprite2D.animation, $AnimatedSprite2D.frame)
-		. get_size()[0]
+		(
+			$AnimatedSprite2D
+			. get_sprite_frames()
+			. get_frame_texture($AnimatedSprite2D.animation, $AnimatedSprite2D.frame)
+			. get_size()[0]
+		)
+		* self.scale.x
+		/ 2.0
 	)
-	/ 2.0
+	- STANDING_ANIMATION_EDGE_GAP * self.scale.x
 )
 @onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
