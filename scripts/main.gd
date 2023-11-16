@@ -8,6 +8,9 @@ func _physics_process(delta: float) -> void:
 	time += delta
 	update_clock()
 
+	if Input.is_action_pressed("exit"):
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
 
 func update_clock() -> void:
 	var hours: int = floori(time / 60)
