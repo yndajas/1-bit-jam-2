@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://pjep2os2ctfo"]
+
+[ext_resource type="Texture2D" uid="uid://d4mt8yr3348cs" path="res://assets/images/sprites/step.png" id="1_r0qng"]
+
+[node name="Step" type="StaticBody2D"]
+position = Vector2(95, 289)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(2, 2)
+texture = ExtResource("1_r0qng")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+polygon = PackedVector2Array(24, 6, -24, 6, -26, 4, -26, -2, -22, -6, 22, -6, 26, -2, 26, 4)
+one_way_collision = true

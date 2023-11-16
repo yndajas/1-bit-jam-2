@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
 [ext_resource type="Texture2D" path="res://assets/images/sprites/top_floor.png" id="3_5biiq"]
-[ext_resource type="Texture2D" uid="uid://d4mt8yr3348cs" path="res://assets/images/sprites/step.png" id="4_xcqgm"]
+[ext_resource type="PackedScene" uid="uid://pjep2os2ctfo" path="res://scenes/step.tscn" id="3_dylbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
 size = Vector2(640, 22)
@@ -35,15 +35,11 @@ texture = ExtResource("3_5biiq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopFloor"]
 shape = SubResource("RectangleShape2D_gxfe4")
 
-[node name="Step" type="StaticBody2D" parent="."]
-position = Vector2(95, 289)
+[node name="Step" parent="." instance=ExtResource("3_dylbd")]
+position = Vector2(97, 295)
 
-[node name="Sprite2D" type="Sprite2D" parent="Step"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(2, 2)
-texture = ExtResource("4_xcqgm")
+[node name="Step2" parent="." instance=ExtResource("3_dylbd")]
+position = Vector2(40, 251)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Step"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-polygon = PackedVector2Array(24, 6, -24, 6, -26, 4, -26, -2, -22, -6, 22, -6, 26, -2, 26, 4)
-one_way_collision = true
+[node name="Step3" parent="." instance=ExtResource("3_dylbd")]
+position = Vector2(88, 208)
