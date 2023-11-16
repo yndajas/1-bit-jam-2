@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bp7gllxuv2iw0"
-path="res://.godot/imported/vomit.png-8a8c65cb13ecd002ad63fc3bbb315066.ctex"
+path="res://.godot/imported/spillage.png-11130f8660ffa95fceee9197a9911d8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/sprites/vomit.png"
-dest_files=["res://.godot/imported/vomit.png-8a8c65cb13ecd002ad63fc3bbb315066.ctex"]
+source_file="res://assets/images/sprites/spillage.png"
+dest_files=["res://.godot/imported/spillage.png-11130f8660ffa95fceee9197a9911d8c.ctex"]
 
 [params]
 

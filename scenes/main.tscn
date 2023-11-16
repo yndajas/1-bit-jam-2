@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=20 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
@@ -14,13 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://b0qtsctbixbr5" path="res://assets/images/sprites/table.png" id="9_bfqyb"]
 [ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="10_mf6td"]
 [ext_resource type="Script" path="res://scripts/oat_milk.gd" id="11_hxc5e"]
-[ext_resource type="PackedScene" uid="uid://clqeebn4ppuyf" path="res://scenes/spillage.tscn" id="15_8a5r1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
-size = Vector2(640, 22)
+size = Vector2(320, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxfe4"]
-size = Vector2(508, 6)
+size = Vector2(254, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qagx8"]
 size = Vector2(51, 18)
@@ -36,22 +35,21 @@ script = ExtResource("1_kpqj2")
 
 [node name="GroundFloor" type="StaticBody2D" parent="."]
 position = Vector2(320, 349)
+scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="GroundFloor"]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(2, 2)
 texture = ExtResource("2_y1cll")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundFloor"]
-position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("RectangleShape2D_jr63u")
 
 [node name="TopFloor" type="StaticBody2D" parent="."]
 position = Vector2(386, 160)
+scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="TopFloor"]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(2, 2)
 texture = ExtResource("3_5biiq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopFloor"]
@@ -68,6 +66,21 @@ position = Vector2(88, 208)
 
 [node name="Player" parent="." instance=ExtResource("4_i60v0")]
 position = Vector2(193, 274)
+
+[node name="Table0" type="Sprite2D" parent="."]
+position = Vector2(290, 140)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bfqyb")
+
+[node name="Table1" type="Sprite2D" parent="."]
+position = Vector2(403, 140)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bfqyb")
+
+[node name="Table2" type="Sprite2D" parent="."]
+position = Vector2(509, 140)
+scale = Vector2(2, 2)
+texture = ExtResource("9_bfqyb")
 
 [node name="Counter" type="Sprite2D" parent="."]
 position = Vector2(388, 321)
@@ -114,25 +127,6 @@ texture = ExtResource("8_vcwob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OatMilk"]
 shape = SubResource("RectangleShape2D_250ft")
-
-[node name="Table0" type="Sprite2D" parent="."]
-position = Vector2(290, 140)
-scale = Vector2(2, 2)
-texture = ExtResource("9_bfqyb")
-
-[node name="Table1" type="Sprite2D" parent="."]
-position = Vector2(403, 140)
-scale = Vector2(2, 2)
-texture = ExtResource("9_bfqyb")
-
-[node name="Table2" type="Sprite2D" parent="."]
-position = Vector2(509, 140)
-scale = Vector2(2, 2)
-texture = ExtResource("9_bfqyb")
-
-[node name="Spillage" parent="." node_paths=PackedStringArray("player") instance=ExtResource("15_8a5r1")]
-position = Vector2(126, 336)
-player = NodePath("../Player")
 
 [node name="ClockText" type="RichTextLabel" parent="."]
 offset_left = 8.0

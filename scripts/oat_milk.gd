@@ -10,8 +10,10 @@ func _physics_process(_delta: float) -> void:
 	if player_in_range && !drunk && Input.is_action_just_pressed("interact"):
 		drunk = true
 		emit_signal("oat_milk_drunk")
-		print_debug("oat milk drunk")
-		# render vomit
+
+
+func on_spillage_cleaned() -> void:
+	drunk = false
 
 
 func _on_body_entered(body: Node2D) -> void:

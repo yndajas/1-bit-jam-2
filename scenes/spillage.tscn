@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://clqeebn4ppuyf"]
 
-[ext_resource type="Texture2D" uid="uid://bp7gllxuv2iw0" path="res://assets/images/sprites/vomit.png" id="1_arkfn"]
 [ext_resource type="Script" path="res://scripts/spillage.gd" id="1_rlufd"]
+[ext_resource type="Texture2D" uid="uid://bp7gllxuv2iw0" path="res://assets/images/sprites/spillage.png" id="2_ofjsx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ef6h"]
 size = Vector2(30, 13)
@@ -11,7 +11,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_rlufd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_arkfn")
+texture = ExtResource("2_ofjsx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7ef6h")

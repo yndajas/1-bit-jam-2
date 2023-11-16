@@ -5,13 +5,11 @@
     - render icon? (or will this show all the time to indicate state?)
   - on oat milk
     - render icon? (or will this show all the time to indicate state?)
-    - on input, render vomit in random spot
   - on speaker
     - render icon? (or will this show all the time to indicate state?)
     - on input, render crack in random spot
-  - on vomit
-    <!-- - render input prompt: "E" to clean -->
-    - if input > N seconds, derender
+  - on spillage
+    - render icon? (or will this show all the time to indicate state?)
   - on crack
     <!-- - render input prompt: "E" to tape/fix -->
     - if input > N seconds, derender (or switch to taped state if a taped sprite
@@ -73,4 +71,6 @@
   - on speaker
     - on input, send signal
   - on oat milk
-    - on input, send signal
+    - on input, send signal and render spillage in random spot
+  - on spillage
+    - if input > N seconds, derender
