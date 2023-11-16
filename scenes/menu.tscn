@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyo5o3v8pywuu"]
+[gd_scene load_steps=6 format=3 uid="uid://cyo5o3v8pywuu"]
 
 [ext_resource type="Texture2D" uid="uid://b2dgu8sfyj0sv" path="res://assets/images/sprites/player/stand_0.png" id="1_5wowv"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_biwwy"]
 [ext_resource type="Texture2D" uid="uid://dl4fpn3o4gqce" path="res://assets/images/sprites/player/stand_1.png" id="2_hd2js"]
+[ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="4_ul0it"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u1nu8"]
 animations = [{
@@ -22,8 +23,18 @@ animations = [{
 script = ExtResource("1_biwwy")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 152)
+position = Vector2(320, 145)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_u1nu8")
 frame = 1
 frame_progress = 0.082792
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 124.0
+offset_top = 312.0
+offset_right = 516.0
+offset_bottom = 336.0
+theme = ExtResource("4_ul0it")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+bbcode_enabled = true
+text = "[center]Press enter to start"
