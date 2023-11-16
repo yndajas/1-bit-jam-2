@@ -23,13 +23,17 @@ var last_six_processes_jump_input = {
 
 func _physics_process(delta: float) -> void:
 	capture_jump_input()
-	direction = Input.get_axis("move_left", "move_right")
+	capture_direction()
 
 	set_animation()
 	set_orientation()
 	set_movement(delta)
 	move_and_slide()
 	reset_if_beyond_edge()
+
+
+func capture_direction() -> void:
+	direction = Input.get_axis("move_left", "move_right")
 
 
 func capture_jump_input() -> void:
