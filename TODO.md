@@ -13,23 +13,10 @@
     - clean
   - on crack
     - tape
-- add customers
-  - render a professional in random position in the seating area
-  - render a vegan in random position in the counter area
-  - render an old person in random position in the counter area
-  - work out how to spawn randomly to create a challenge that's doable but not
-    hackable/easy (i.e. can't just wait until near the end to throw everyone
-    out). Perhaps only one customer derenders per action, and you keep getting
-    new customers at random intervals until 16:55? Will it feel fair if you get
-    one at 16:55 one time and not another?
 - derender customer on signals:
   - coffee machine broken: one professional
   - oat milk drunk: one vegan
   - speaker blasted: one old person
-- show speech before derendering customers:
-  - professional: "I can't work without cofee!"
-  - vegan: "Where are your vegan options!?"
-  - old person: "**muffled discontent**"
 - show result if success or time reaches 17:30
   - success condition: no customers, no breakages
   - score:
@@ -44,6 +31,11 @@
 
 ## Stretch goals
 
+- show speech before derendering customers:
+  - professional: "I can't work without cofee!"
+  - vegan: "Where are your vegan options!?"
+  - old person: "**muffled discontent**"
+- make customers move at different speeds
 - make original scene a tutorial level then add another level with customemrs
   randomly spawning until 17:00
 - add more levels with increasing customer spawn rate
@@ -82,3 +74,6 @@
   - on crack
     - if input > N seconds, derender
 - track fixables (stuff left to fix/clean up)
+- add customers
+  - render customers in a queue on the ground floor using a predefined pattern
+    (order and intervals)
