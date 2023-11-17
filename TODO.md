@@ -7,13 +7,10 @@
     - render icon? (or will this show all the time to indicate state?)
   - on speaker
     - render icon? (or will this show all the time to indicate state?)
-    - on input, render crack in random spot
   - on spillage
     - render icon? (or will this show all the time to indicate state?)
   - on crack
-    <!-- - render input prompt: "E" to tape/fix -->
-    - if input > N seconds, derender (or switch to taped state if a taped sprite
-      is available)
+    - render icon? (or will this show all the time to indicate state?)
 - add customers
   - render a professional in the seating area
   - render a vegan in the counter area
@@ -21,7 +18,7 @@
 - derender customers on signals:
   - coffee machine broken: professional(s)
   - oat milk drunk: vegan(s)
-  - speaker turned on: old person
+  - speaker turned on: old person/people
 - show speech before derendering customers:
   - professional: "I can't work without cofee!"
   - vegan: "Where are your vegan options!?"
@@ -69,8 +66,11 @@
     - in working state, on input, switch to broken state and send signal
     - in broken state, if input > N seconds, switch to working state
   - on speaker
-    - on input, send signal
+    - on input, send signal and render crack in random spot
   - on oat milk
     - on input, send signal and render spillage in random spot
   - on spillage
     - if input > N seconds, derender
+  - on crack
+    - if input > N seconds, derender
+- track fixables (stuff left to fix/clean up)
