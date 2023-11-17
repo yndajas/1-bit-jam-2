@@ -1,24 +1,31 @@
 # To do
 
-- add player collision detection
-  - on coffee machine
-    - render icon? (or will this show all the time to indicate state?)
-  - on oat milk
-    - render icon? (or will this show all the time to indicate state?)
+- render icons
+  - coffee machine
+    - fixed
+    - broken
+  - oat milk
+    - full
+    - empty
   - on speaker
-    - render icon? (or will this show all the time to indicate state?)
+    - turn up
   - on spillage
-    - render icon? (or will this show all the time to indicate state?)
+    - clean
   - on crack
-    - render icon? (or will this show all the time to indicate state?)
+    - tape
 - add customers
-  - render a professional in the seating area
-  - render a vegan in the counter area
-  - render an old person in the counter area
-- derender customers on signals:
-  - coffee machine broken: professional(s)
-  - oat milk drunk: vegan(s)
-  - speaker turned on: old person/people
+  - render a professional in random position in the seating area
+  - render a vegan in random position in the counter area
+  - render an old person in random position in the counter area
+  - work out how to spawn randomly to create a challenge that's doable but not
+    hackable/easy (i.e. can't just wait until near the end to throw everyone
+    out). Perhaps only one customer derenders per action, and you keep getting
+    new customers at random intervals until 16:55? Will it feel fair if you get
+    one at 16:55 one time and not another?
+- derender customer on signals:
+  - coffee machine broken: one professional
+  - oat milk drunk: one vegan
+  - speaker blasted: one old person
 - show speech before derendering customers:
   - professional: "I can't work without cofee!"
   - vegan: "Where are your vegan options!?"
@@ -31,13 +38,14 @@
     - success before 17:30: 1 star ("I'm going to be late for the gym :'(")
     - no success at 17:30: 0 stars ("We don't pay overtime! Get out of here!")
   - stop main input/physics processes, take restart/return to menu input
+- render credits on score screen
+- add other sound effects
+- add music
 
 ## Stretch goals
 
-- add other sound effects
 - make original scene a tutorial level then add another level with customemrs
   randomly spawning until 17:00
-- add music
 - add more levels with increasing customer spawn rate
 - add slider challenge to fix problems
 - add option to serve customer in queue which takes longer than 'breaking' and
