@@ -2,6 +2,7 @@ extends Node
 
 const PLAYABLE_LEFT_EDGE: int = 0
 const PLAYABLE_RIGHT_EDGE: int = 640
+const PLAYABLE_TOP_EDGE: int = 0
 
 
 func track_fixable(area: Area2D, delta: float) -> void:

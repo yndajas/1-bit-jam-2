@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://0x8taf3q2d"]
+
+[ext_resource type="Texture2D" uid="uid://flklejghofqb" path="res://assets/images/sprites/window_crack.png" id="1_l3veg"]
+[ext_resource type="Script" path="res://scripts/window_crack.gd" id="1_od6l5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3oh1"]
+size = Vector2(30, 37)
+
+[node name="WindowCrack" type="Area2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(2, 2)
+script = ExtResource("1_od6l5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l3veg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u3oh1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
