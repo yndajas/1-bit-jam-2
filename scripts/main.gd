@@ -1,5 +1,6 @@
 extends Node2D
 
+var fixables: int = 0
 var spillage_scene: PackedScene = preload("res://scenes/spillage.tscn")
 var window_crack_scene: PackedScene = preload("res://scenes/window_crack.tscn")
 var time: float = 960.0
@@ -8,6 +9,7 @@ var time: float = 960.0
 )
 @onready var clock_text: RichTextLabel = $ClockText
 @onready var clock_text_bottom_edge: int = ceili(clock_text.position.y + clock_text.size.y)
+@onready var coffee_machine: Area2D = $CoffeeMachine
 @onready var counter_half_width: int = floori($Counter.get_rect().size[0] / 2.0 * $Counter.scale.x)
 @onready var counter_left_edge: int = floori($Counter.position.x - counter_half_width)
 @onready var counter_right_edge: int = ceili($Counter.position.x + counter_half_width)
@@ -33,6 +35,8 @@ var time: float = 960.0
 
 
 func _ready() -> void:
+	coffee_machine.connect("coffee_machine_broken", on_coffee_machine_broken)
+	coffee_machine.connect("coffee_machine_fixed", on_coffee_machine_fixed)
 	oat_milk.connect("oat_milk_drunk", on_oat_milk_drunk)
 	speaker.connect("speaker_blasted", on_speaker_blasted)
 
@@ -43,6 +47,16 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("exit"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+	print_debug(fixables)
+
+
+func on_coffee_machine_broken() -> void:
+	fixables += 1
+
+
+func on_coffee_machine_fixed() -> void:
+	fixables -= 1
 
 
 func on_oat_milk_drunk() -> void:
@@ -61,6 +75,7 @@ func on_oat_milk_drunk() -> void:
 	spillage.player = player
 	spillage.connect("spillage_cleaned", on_spillage_cleaned)
 	oat_milk.add_sibling.call_deferred(spillage)
+	fixables += 1
 
 
 func on_speaker_blasted() -> void:
@@ -82,11 +97,18 @@ func on_speaker_blasted() -> void:
 		. pick_random()
 	)
 	window_crack.player = player
+	window_crack.connect("window_crack_fixed", on_window_crack_fixed)
 	speaker.add_sibling.call_deferred(window_crack)
+	fixables += 1
 
 
 func on_spillage_cleaned() -> void:
 	oat_milk.on_spillage_cleaned()
+	fixables -= 1
+
+
+func on_window_crack_fixed() -> void:
+	fixables -= 1
 
 
 func spillage_position_bottom_left(spillage_half_width: int) -> Vector2:

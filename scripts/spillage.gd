@@ -9,10 +9,9 @@ var player_in_range: bool = false
 
 func _physics_process(delta: float) -> void:
 	if fixed:
-		emit_signal("spillage_cleaned")
 		self.queue_free()
 	elif player_in_range && !fixed:
-		Global.track_fixable(self, delta)
+		Global.track_fixable(self, delta, "spillage_cleaned")
 
 
 func _on_body_entered(body: Node2D) -> void:
