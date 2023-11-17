@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00pgbpha6phy"]
+
+[ext_resource type="Texture2D" uid="uid://lpo7p8dxeymk" path="res://assets/images/sprites/customers/vegan.png" id="1_u8xxs"]
+
+[node name="Vegan" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_u8xxs")
