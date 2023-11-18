@@ -16,6 +16,8 @@ var time: float = 960.0
 @onready var counter_left_edge: int = floori($Counter.position.x - counter_half_width)
 @onready var counter_right_edge: int = ceili($Counter.position.x + counter_half_width)
 @onready var customer_spawner: Node2D = $CustomerSpawner
+@onready var day_text: RichTextLabel = $DayText
+@onready var day_text_bottom_edge: int = ceili(day_text.position.y + day_text.size.y)
 @onready var oat_milk: Area2D = $OatMilk
 @onready var player: CharacterBody2D = $Player
 @onready var speaker: Area2D = $Speaker
@@ -38,6 +40,7 @@ var time: float = 960.0
 
 
 func _ready() -> void:
+	day_text.text = Global.current_level_name()
 	coffee_machine.connect("coffee_machine_broken", on_coffee_machine_broken)
 	coffee_machine.connect("coffee_machine_fixed", on_coffee_machine_fixed)
 	customer_spawner.connect("customer_arrived", on_customer_arrived)
@@ -222,7 +225,7 @@ func window_crack_position_top_left(
 			top_floor_left_edge - window_crack_half_width - 24
 		),
 		randi_range(
-			clock_text_bottom_edge + window_crack_half_height + 24,
+			day_text_bottom_edge + window_crack_half_height + 24,
 			step_2_top_edge - window_crack_half_height - 24
 		)
 	)
@@ -237,7 +240,7 @@ func window_crack_position_top_right(
 			Global.PLAYABLE_RIGHT_EDGE - window_crack_half_width - 24
 		),
 		randi_range(
-			Global.PLAYABLE_TOP_EDGE + window_crack_half_height + 24,
+			clock_text_bottom_edge + window_crack_half_height + 24,
 			top_floor_top_edge - window_crack_half_height - 24
 		)
 	)

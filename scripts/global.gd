@@ -1,6 +1,7 @@
 extends Node
 
 const CUSTOMER_SPEED: float = 50.0
+const LEVEL_NAMES: Array[String] = ["Monday", "Wednesday", "Friday", "Sunday"]
 const LEVEL_SPAWNS: Array[Array] = [
 	[
 		{"customer_type_index": 0, "wait_time": 3.0},
@@ -56,6 +57,10 @@ const PLAYABLE_RIGHT_EDGE: int = 640
 const PLAYABLE_TOP_EDGE: int = 0
 var current_level: int = 0
 var level_scores: Array[int] = [0, 0, 0, 0]
+
+
+func current_level_name() -> String:
+	return LEVEL_NAMES[current_level]
 
 
 func load_main_scene() -> void:
