@@ -78,3 +78,4 @@
 - add day to level
 - add controls testing screen
 - render credits on score screen
+- add title

@@ -22,9 +22,19 @@ animations = [{
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_biwwy")
 
+[node name="Title" type="RichTextLabel" parent="."]
+offset_top = 24.0
+offset_right = 640.0
+offset_bottom = 56.0
+theme = ExtResource("4_ul0it")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]It's Closing Time!"
+
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 145)
-scale = Vector2(4, 4)
+position = Vector2(320, 170)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_u1nu8")
 frame = 1
 frame_progress = 0.082792
