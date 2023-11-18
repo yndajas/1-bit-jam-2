@@ -2,6 +2,7 @@ extends Node2D
 
 var customer_count: int = 0
 var fixables_count: int = 0
+var level_finished: bool = false
 var spillage_scene: PackedScene = preload("res://scenes/spillage.tscn")
 var window_crack_scene: PackedScene = preload("res://scenes/window_crack.tscn")
 var time: float = 960.0
@@ -37,6 +38,7 @@ var time: float = 960.0
 
 
 func _ready() -> void:
+	Global.current_level = 0
 	coffee_machine.connect("coffee_machine_broken", on_coffee_machine_broken)
 	coffee_machine.connect("coffee_machine_fixed", on_coffee_machine_fixed)
 	customer_spawner.connect("customer_arrived", on_customer_arrived)
@@ -48,9 +50,33 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	time += delta
 	update_clock()
+	check_if_level_finished(delta)
+
+	if level_finished:
+		get_tree().change_scene_to_file("res://scenes/result.tscn")
 
 	if Input.is_action_pressed("exit"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+
+func check_if_level_finished(delta: float) -> void:
+	if time >= 1020.0 and in_winnable_state():
+		if time - delta <= 1020.0:
+			Global.level_scores[Global.current_level] = 3
+			level_finished = true
+		elif time < 1030.0:
+			Global.level_scores[Global.current_level] = 2
+			level_finished = true
+		elif time < 1050.0:
+			Global.level_scores[Global.current_level] = 1
+			level_finished = true
+	elif time >= 1050.0:
+		Global.level_scores[Global.current_level] = 0
+		level_finished = true
+
+
+func in_winnable_state() -> bool:
+	return customer_count == 0 and fixables_count == 0
 
 
 func on_coffee_machine_broken() -> void:

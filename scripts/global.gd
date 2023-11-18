@@ -4,6 +4,8 @@ const CUSTOMER_SPEED: float = 50.0
 const PLAYABLE_LEFT_EDGE: int = 0
 const PLAYABLE_RIGHT_EDGE: int = 640
 const PLAYABLE_TOP_EDGE: int = 0
+var current_level: int = -1
+var level_scores: Array[int] = [0]
 
 
 func track_fixable(area: Area2D, delta: float, signal_to_emit: String) -> void:
