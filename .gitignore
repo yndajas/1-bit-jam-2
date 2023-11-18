@@ -1,4 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 
+# Builds
+build/
+
 node_modules
