@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=26 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/icon_fixable.gd" id="12_0v48i"]
 [ext_resource type="Texture2D" uid="uid://ca4r4lhpywvmn" path="res://assets/images/sprites/icons/drink.png" id="15_lfk44"]
 [ext_resource type="Script" path="res://scripts/customer_spawner.gd" id="15_wywfk"]
+[ext_resource type="Texture2D" uid="uid://5hsuhkslx3et" path="res://assets/images/sprites/icons/blast.png" id="18_x3a57"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
 size = Vector2(320, 11)
@@ -151,6 +152,11 @@ texture = ExtResource("7_dl1n7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speaker"]
 shape = SubResource("RectangleShape2D_isrpq")
+
+[node name="IconBlast" type="Sprite2D" parent="Speaker"]
+visible = false
+position = Vector2(0, -25)
+texture = ExtResource("18_x3a57")
 
 [node name="ClockText" type="RichTextLabel" parent="."]
 offset_left = 8.0

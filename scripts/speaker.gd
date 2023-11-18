@@ -3,6 +3,7 @@ extends Area2D
 signal speaker_blasted
 @export var player: CharacterBody2D
 var player_in_range: bool = false
+@onready var icon_blast: Sprite2D = $IconBlast
 
 
 func _physics_process(_delta: float) -> void:
@@ -12,9 +13,11 @@ func _physics_process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
+		icon_blast.visible = true
 		player_in_range = true
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if body == player:
+		icon_blast.visible = false
 		player_in_range = false

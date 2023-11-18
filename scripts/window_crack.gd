@@ -5,6 +5,7 @@ signal window_crack_fixed
 var fixed: bool = false
 var interaction_time: float = 0.0
 var player_in_range: bool = false
+@onready var icon_tape: Sprite2D = $IconTape
 
 
 func _physics_process(delta: float) -> void:
@@ -23,3 +24,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body == player:
 		interaction_time = 0
 		player_in_range = false
+
+
+func _on_timer_timeout() -> void:
+	icon_tape.visible = !icon_tape.visible
