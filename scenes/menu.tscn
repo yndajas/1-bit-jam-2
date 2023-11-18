@@ -29,7 +29,7 @@ sprite_frames = SubResource("SpriteFrames_u1nu8")
 frame = 1
 frame_progress = 0.082792
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="StartPrompt" type="RichTextLabel" parent="."]
 offset_left = 124.0
 offset_top = 312.0
 offset_right = 516.0
