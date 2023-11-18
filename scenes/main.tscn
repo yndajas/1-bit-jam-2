@@ -1,7 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=29 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
-[ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
+[ext_resource type="PackedScene" uid="uid://qlwknee2gfdj" path="res://scenes/ground_floor.tscn" id="2_jxyd8"]
 [ext_resource type="Texture2D" uid="uid://0l8c70d4yabt" path="res://assets/images/sprites/top_floor.png" id="3_5biiq"]
 [ext_resource type="PackedScene" uid="uid://pjep2os2ctfo" path="res://scenes/step.tscn" id="3_dylbd"]
 [ext_resource type="PackedScene" uid="uid://bm1y41plkax3g" path="res://scenes/player.tscn" id="4_i60v0"]
@@ -25,9 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://5hsuhkslx3et" path="res://assets/images/sprites/icons/blast.png" id="18_x3a57"]
 [ext_resource type="AudioStream" uid="uid://cs7q176888jmg" path="res://assets/audio/sfx/blast_repeat.wav" id="21_ikj14"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
-size = Vector2(320, 11)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxfe4"]
 size = Vector2(254, 3)
 
@@ -43,16 +40,7 @@ size = Vector2(30, 17)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kpqj2")
 
-[node name="GroundFloor" type="StaticBody2D" parent="."]
-position = Vector2(320, 349)
-scale = Vector2(2, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="GroundFloor"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("2_y1cll")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundFloor"]
-shape = SubResource("RectangleShape2D_jr63u")
+[node name="GroundFloor" parent="." instance=ExtResource("2_jxyd8")]
 
 [node name="TopFloor" type="StaticBody2D" parent="."]
 position = Vector2(386, 160)
