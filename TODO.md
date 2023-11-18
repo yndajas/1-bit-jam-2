@@ -1,19 +1,9 @@
 # To do
 
-- add controls testing screen
-- show result if success or time reaches 17:30
-  - success condition: no customers, no breakages
-  - score:
-    - success at 17:00: 3 stars ("Lock the doors, let's have a kiki!")
-    - success before 17:10: 2 stars ("Business as usual")
-    - success before 17:30: 1 star ("I'm going to be late for the gym :'(")
-    - no success at 17:30: 0 stars ("We don't pay overtime! Get out of here!")
-  - stop main input/physics processes, take restart/return to menu input
-- render credits on score screen
-- add music
-
 ## Stretch goals
 
+- add music
+- speed time up if winnable state and no customers left to spawn
 - show speech before derendering customers:
   - professional: "I can't work without cofee!"
   - vegan: "Where are your vegan options!?"
@@ -21,7 +11,6 @@
 - make customers move at different speeds
 - make original scene a tutorial level then add another level with customemrs
   randomly spawning until 17:00
-- add more levels with increasing customer spawn rate
 - add slider challenge to fix problems
 - add option to serve customer in queue which takes longer than 'breaking' and
   fixing (or the other options remove all customers by type, whereas serving
@@ -78,3 +67,14 @@
   - on crack
     - tape
 - add other sound effects
+- show result if success or time reaches 17:30
+  - success condition: no customers, no breakages
+  - score:
+    - success at 17:00: 3 star
+    - success before 17:10: 2 stars
+    - success before 17:30: 1 star
+    - no success at 17:30: 0 stars
+- add more levels with increasing customer spawn rate
+- add day to level
+- add controls testing screen
+- render credits on score screen
