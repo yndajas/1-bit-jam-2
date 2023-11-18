@@ -53,13 +53,11 @@ func move_customers(delta: float) -> void:
 		var sprite_index: int = sprite_indices[customer_type_index]
 		var sprite: Sprite2D = sprites_of_type[sprite_index]
 
-		var playable_edge_gap: int = Global.PLAYABLE_RIGHT_EDGE - 24
-		var half_customer_slot_width: int = floori(16 * sprite.scale.x)
-		var queue_position_offset: int = floori(32 * sprite.scale.x * spawned_index)
+		var queue_position_offset: int = floori(48 * sprite.scale.x * spawned_index)
 		sprite.global_position.x = ceili(
 			move_toward(
 				sprite.global_position.x,
-				playable_edge_gap - half_customer_slot_width - queue_position_offset,
+				speaker.global_position.x - queue_position_offset,
 				Global.CUSTOMER_SPEED * delta
 			)
 		)
