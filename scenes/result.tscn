@@ -70,6 +70,18 @@ text = "[center]Press enter to continue"
 wait_time = 0.5
 one_shot = true
 
+[node name="Credits" type="RichTextLabel" parent="."]
+visible = false
+offset_top = 26.0
+offset_right = 640.0
+offset_bottom = 50.0
+theme = ExtResource("5_l43c4")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+bbcode_enabled = true
+text = "[center]Made by Weli Yu and  Ynda Jas"
+
+[node name="Timer" type="Timer" parent="Credits"]
+
 [node name="Player" parent="." instance=ExtResource("5_p0gf4")]
 position = Vector2(193, 274)
 
@@ -102,3 +114,4 @@ texture = ExtResource("10_n3w0s")
 
 [connection signal="timeout" from="StarFillTimer" to="." method="_on_star_fill_timer_timeout"]
 [connection signal="timeout" from="ContinuePrompt/Timer" to="." method="_on_continue_prompt_timer_timeout"]
+[connection signal="timeout" from="Credits/Timer" to="." method="_on_credits_timer_timeout"]

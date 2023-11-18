@@ -3,6 +3,10 @@ extends Node2D
 var stars_filled: int = 0
 @onready var continue_prompt: RichTextLabel = $ContinuePrompt
 @onready var continue_prompt_timer: Timer = $ContinuePrompt/Timer
+@onready var credits: RichTextLabel = $Credits
+@onready var credits_timer: Timer = $Credits/Timer
+@onready var end_text: RichTextLabel = $EndText
+@onready var end_text_timer: Timer = $EndText/Timer
 @onready var filled_stars: Array[Sprite2D] = [$FilledStar0, $FilledStar1, $FilledStar2]
 @onready var sfx_player: AudioStreamPlayer = $StarFillTimer/SfxPlayer
 @onready var star_fill_timer: Timer = $StarFillTimer
@@ -30,17 +34,12 @@ func _physics_process(_delta: float) -> void:
 
 func render_continue_or_credits() -> void:
 	if Global.on_final_level():
-		# wait 1 second
-		render_credits()
+		credits_timer.start()
 	else:
 		if score() > 0:
 			continue_prompt_timer.start()
 		else:
 			continue_prompt.visible = true
-
-
-func render_credits() -> void:
-	print_debug("credits")
 
 
 func score() -> int:
@@ -58,6 +57,10 @@ func start_star_fill_timer() -> void:
 
 func _on_continue_prompt_timer_timeout() -> void:
 	continue_prompt.visible = true
+
+
+func _on_credits_timer_timeout() -> void:
+	credits.visible = true
 
 
 func _on_star_fill_timer_timeout() -> void:
