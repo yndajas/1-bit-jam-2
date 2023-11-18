@@ -1,18 +1,6 @@
 # To do
 
-- render icons
-  - coffee machine
-    - fixed
-    - broken
-  - oat milk
-    - full
-    - empty
-  - on speaker
-    - turn up
-  - on spillage
-    - clean
-  - on crack
-    - tape
+- add controls testing screen
 - show result if success or time reaches 17:30
   - success condition: no customers, no breakages
   - score:
@@ -22,7 +10,6 @@
     - no success at 17:30: 0 stars ("We don't pay overtime! Get out of here!")
   - stop main input/physics processes, take restart/return to menu input
 - render credits on score screen
-- add other sound effects
 - add music
 
 ## Stretch goals
@@ -77,3 +64,17 @@
   - coffee machine broken: one professional
   - oat milk drunk: one vegan
   - speaker blasted: one old person
+- render icons
+  - coffee machine
+    - fixed
+    - broken
+  - oat milk
+    - full
+    - empty
+  - on speaker
+    - turn up
+  - on spillage
+    - clean
+  - on crack
+    - tape
+- add other sound effects
