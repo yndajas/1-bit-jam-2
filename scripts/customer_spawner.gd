@@ -40,6 +40,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	move_customers(delta)
+
+
+func move_customers(delta: float) -> void:
 	var spawned_index = 0
 	var sprite_indices: Array = [0, 0, 0]
 
