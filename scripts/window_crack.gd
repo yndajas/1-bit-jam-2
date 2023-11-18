@@ -6,6 +6,7 @@ var fixed: bool = false
 var interaction_time: float = 0.0
 var player_in_range: bool = false
 @onready var icon_tape: Sprite2D = $IconTape
+@onready var fix_sfx_player: AudioStreamPlayer = $FixSfxPlayer
 
 
 func _physics_process(delta: float) -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://clqeebn4ppuyf"]
+[gd_scene load_steps=6 format=3 uid="uid://clqeebn4ppuyf"]
 
 [ext_resource type="Script" path="res://scripts/spillage.gd" id="1_rlufd"]
 [ext_resource type="Texture2D" uid="uid://bp7gllxuv2iw0" path="res://assets/images/sprites/spillage.png" id="2_ofjsx"]
 [ext_resource type="Texture2D" uid="uid://bn7riggrf88yf" path="res://assets/images/sprites/icons/clean.png" id="3_7sojf"]
+[ext_resource type="AudioStream" uid="uid://c83lb25mb2lcv" path="res://assets/audio/sfx/clean_with_pause.wav" id="4_uqeoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ef6h"]
 size = Vector2(30, 13)
@@ -24,6 +25,9 @@ texture = ExtResource("3_7sojf")
 [node name="Timer" type="Timer" parent="IconClean"]
 wait_time = 0.5
 autostart = true
+
+[node name="FixSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uqeoi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

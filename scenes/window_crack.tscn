@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://0x8taf3q2d"]
+[gd_scene load_steps=6 format=3 uid="uid://0x8taf3q2d"]
 
 [ext_resource type="Texture2D" uid="uid://flklejghofqb" path="res://assets/images/sprites/window_crack.png" id="1_l3veg"]
 [ext_resource type="Script" path="res://scripts/window_crack.gd" id="1_od6l5"]
 [ext_resource type="Texture2D" uid="uid://bafwlyta6o6b5" path="res://assets/images/sprites/icons/tape.png" id="3_l85oq"]
+[ext_resource type="AudioStream" uid="uid://tdb8xt7bqacy" path="res://assets/audio/sfx/tape_with_pause.wav" id="4_aghsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3oh1"]
 size = Vector2(30, 37)
@@ -24,6 +25,9 @@ texture = ExtResource("3_l85oq")
 
 [node name="Timer" type="Timer" parent="IconTape"]
 autostart = true
+
+[node name="FixSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_aghsy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

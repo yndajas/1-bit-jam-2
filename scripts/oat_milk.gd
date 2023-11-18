@@ -5,10 +5,12 @@ signal oat_milk_drunk
 var drunk: bool = false
 var player_in_range: bool = false
 @onready var icon_drink: Sprite2D = $IconDrink
+@onready var drink_sfx_player: AudioStreamPlayer = $DrinkSfxPlayer
 
 
 func _physics_process(_delta: float) -> void:
 	if player_in_range && !drunk && Input.is_action_just_pressed("interact"):
+		drink_sfx_player.play()
 		drunk = true
 		icon_drink.visible = false
 		emit_signal("oat_milk_drunk")

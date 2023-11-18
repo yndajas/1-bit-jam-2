@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=30 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
@@ -17,9 +17,13 @@
 [ext_resource type="Script" path="res://scripts/oat_milk.gd" id="11_hxc5e"]
 [ext_resource type="Texture2D" uid="uid://basiiw063bvy5" path="res://assets/images/sprites/icons/fix.png" id="11_vnu8y"]
 [ext_resource type="Script" path="res://scripts/icon_fixable.gd" id="12_0v48i"]
+[ext_resource type="AudioStream" uid="uid://d2x0rru4xjnvt" path="res://assets/audio/sfx/break.wav" id="13_x820l"]
+[ext_resource type="AudioStream" uid="uid://muovpipakmar" path="res://assets/audio/sfx/fix_with_pause.wav" id="14_7dm8y"]
 [ext_resource type="Texture2D" uid="uid://ca4r4lhpywvmn" path="res://assets/images/sprites/icons/drink.png" id="15_lfk44"]
 [ext_resource type="Script" path="res://scripts/customer_spawner.gd" id="15_wywfk"]
+[ext_resource type="AudioStream" uid="uid://dwu8k7bmrxpuj" path="res://assets/audio/sfx/drink_repeat.wav" id="18_1qkv0"]
 [ext_resource type="Texture2D" uid="uid://5hsuhkslx3et" path="res://assets/images/sprites/icons/blast.png" id="18_x3a57"]
+[ext_resource type="AudioStream" uid="uid://cs7q176888jmg" path="res://assets/audio/sfx/blast_repeat.wav" id="21_ikj14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
 size = Vector2(320, 11)
@@ -119,6 +123,12 @@ script = ExtResource("12_0v48i")
 [node name="Timer" type="Timer" parent="CoffeeMachine/IconFix"]
 wait_time = 0.5
 
+[node name="BreakSfxPlayer" type="AudioStreamPlayer" parent="CoffeeMachine"]
+stream = ExtResource("13_x820l")
+
+[node name="FixSfxPlayer" type="AudioStreamPlayer" parent="CoffeeMachine"]
+stream = ExtResource("14_7dm8y")
+
 [node name="OatMilk" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(408, 288)
 scale = Vector2(2, 2)
@@ -141,6 +151,9 @@ visible = false
 position = Vector2(0, -24.5)
 texture = ExtResource("15_lfk44")
 
+[node name="DrinkSfxPlayer" type="AudioStreamPlayer" parent="OatMilk"]
+stream = ExtResource("18_1qkv0")
+
 [node name="Speaker" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(506, 287)
 scale = Vector2(2, 2)
@@ -157,6 +170,9 @@ shape = SubResource("RectangleShape2D_isrpq")
 visible = false
 position = Vector2(0, -25)
 texture = ExtResource("18_x3a57")
+
+[node name="BlastSfxPlayer" type="AudioStreamPlayer" parent="Speaker"]
+stream = ExtResource("21_ikj14")
 
 [node name="ClockText" type="RichTextLabel" parent="."]
 offset_left = 8.0

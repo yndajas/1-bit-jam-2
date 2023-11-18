@@ -4,10 +4,12 @@ signal speaker_blasted
 @export var player: CharacterBody2D
 var player_in_range: bool = false
 @onready var icon_blast: Sprite2D = $IconBlast
+@onready var blast_sfx_player: AudioStreamPlayer = $BlastSfxPlayer
 
 
 func _physics_process(_delta: float) -> void:
 	if player_in_range && Input.is_action_just_pressed("interact"):
+		blast_sfx_player.play()
 		emit_signal("speaker_blasted")
 
 

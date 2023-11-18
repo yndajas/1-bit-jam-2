@@ -6,6 +6,8 @@ signal coffee_machine_fixed
 var fixed: bool = true
 var interaction_time: float = 0.0
 var player_in_range: bool = false
+@onready var break_sfx_player: AudioStreamPlayer = $BreakSfxPlayer
+@onready var fix_sfx_player: AudioStreamPlayer = $FixSfxPlayer
 @onready var icon_break: Sprite2D = $IconBreak
 @onready var icon_fix: Sprite2D = $IconFix
 
@@ -15,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		if !fixed:
 			Global.track_fixable(self, delta, "coffee_machine_fixed")
 		elif Input.is_action_just_pressed("interact"):
+			break_sfx_player.play()
 			fixed = false
 			icon_break.visible = false
 			icon_fix.start_flash()
