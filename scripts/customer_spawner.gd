@@ -53,15 +53,13 @@ func move_customers(delta: float) -> void:
 		var sprite_index: int = sprite_indices[customer_type_index]
 		var sprite: Sprite2D = sprites_of_type[sprite_index]
 
-		var queue_position_offset: int = floori(48 * sprite.scale.x * spawned_index)
 		sprite.global_position.x = ceili(
 			move_toward(
 				sprite.global_position.x,
-				speaker.global_position.x - queue_position_offset,
+				maximum_queue_position(sprite, spawned_index),
 				Global.CUSTOMER_SPEED * delta
 			)
 		)
-
 		spawned_index += 1
 		sprite_indices[customer_type_index] += 1
 
@@ -86,6 +84,11 @@ func queue_next_spawn() -> void:
 	next_spawn = spawn_queue.pop_front()
 	timer.wait_time = next_spawn.wait_time
 	timer.start()
+
+
+func maximum_queue_position(sprite: Sprite2D, spawned_index: int) -> int:
+	var queue_position_offset: int = floori(32 * sprite.scale.x * spawned_index)
+	return floori(speaker.global_position.x) - queue_position_offset
 
 
 func remove_customer(customer_type_index: int) -> void:
@@ -115,7 +118,10 @@ func spawn_customer() -> void:
 		new_customer.get_rect().size[1] / 2.0 * new_customer.scale.y
 	)
 	new_customer.global_position = Vector2(
-		Global.PLAYABLE_LEFT_EDGE - new_customer_half_width,
+		min(
+			Global.PLAYABLE_LEFT_EDGE - new_customer_half_width,
+			maximum_queue_position(new_customer, spawned.spawn_dictionaries.size())
+		),
 		ground_floor_top_edge - new_customer_half_height
 	)
 	timer.add_sibling.call_deferred(new_customer)
