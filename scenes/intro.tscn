@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://0e3ljnppdfa8"]
+
+[ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="1_60a26"]
+[ext_resource type="Script" path="res://scripts/intro.gd" id="1_elm32"]
+[ext_resource type="Texture2D" uid="uid://cufxshm5s5bdh" path="res://assets/images/sprites/customers/old.png" id="2_6mskj"]
+[ext_resource type="Texture2D" uid="uid://cv7ralxa8tfeb" path="res://assets/images/sprites/customers/professional.png" id="3_ego3b"]
+[ext_resource type="Texture2D" uid="uid://lpo7p8dxeymk" path="res://assets/images/sprites/customers/vegan.png" id="4_f6c26"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_elm32")
+
+[node name="Goal" type="RichTextLabel" parent="."]
+offset_left = 81.0
+offset_top = 24.0
+offset_right = 563.0
+offset_bottom = 60.0
+size_flags_horizontal = 4
+theme = ExtResource("1_60a26")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+theme_override_constants/line_separation = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Get rid of your customers before 5pm, but make sure to keep the place clean!"
+
+[node name="Old" type="Sprite2D" parent="."]
+position = Vector2(137, 114)
+scale = Vector2(2, 2)
+texture = ExtResource("2_6mskj")
+
+[node name="Description" type="RichTextLabel" parent="Old"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -22.0
+offset_right = 142.5
+offset_bottom = -4.0
+grow_vertical = 2
+theme = ExtResource("1_60a26")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+theme_override_constants/line_separation = 1
+theme_override_font_sizes/normal_font_size = 8
+text = "Old folks can't handle loud noises"
+metadata/_edit_use_anchors_ = true
+
+[node name="Professional" type="Sprite2D" parent="."]
+position = Vector2(489, 170)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ego3b")
+
+[node name="Description" type="RichTextLabel" parent="Professional"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -167.5
+offset_top = -21.0
+offset_right = -37.5
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_60a26")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+theme_override_constants/line_separation = 1
+theme_override_font_sizes/normal_font_size = 8
+text = "Professionals need their caffeine fix"
+metadata/_edit_use_anchors_ = true
+
+[node name="Vegan" type="Sprite2D" parent="."]
+position = Vector2(136, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("4_f6c26")
+
+[node name="Description" type="RichTextLabel" parent="Vegan"]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.16
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -22.0
+offset_right = 153.0
+offset_bottom = -4.0
+grow_vertical = 2
+theme = ExtResource("1_60a26")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+theme_override_constants/line_separation = 1
+theme_override_font_sizes/normal_font_size = 8
+text = "Vegans live off plant-based options"
+metadata/_edit_use_anchors_ = true
+
+[node name="ContinuePrompt" type="RichTextLabel" parent="."]
+offset_left = 95.0
+offset_top = 308.0
+offset_right = 545.0
+offset_bottom = 332.0
+size_flags_horizontal = 4
+theme = ExtResource("1_60a26")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+bbcode_enabled = true
+text = "[center]Press enter to continue"
