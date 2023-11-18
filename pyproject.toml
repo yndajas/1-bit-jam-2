@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "1-BIT #2"
-version = "0.0.1"
+name = "It's Closing Time!"
+version = "1.0.0"
 description = ""
 authors = ["Ynda Jas <yndajas@gmail.com>", "Weli Yu"]
 
