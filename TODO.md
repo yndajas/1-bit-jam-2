@@ -2,6 +2,9 @@
 
 ## Stretch goals
 
+- shift queue end to left of counter, or left end of counter
+- update key tutorial per design
+- add level select
 - add music
 - speed time up if winnable state and no customers left to spawn
 - show speech before derendering customers:
