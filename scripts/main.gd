@@ -38,7 +38,6 @@ var time: float = 960.0
 
 
 func _ready() -> void:
-	Global.current_level = 0
 	coffee_machine.connect("coffee_machine_broken", on_coffee_machine_broken)
 	coffee_machine.connect("coffee_machine_fixed", on_coffee_machine_fixed)
 	customer_spawner.connect("customer_arrived", on_customer_arrived)

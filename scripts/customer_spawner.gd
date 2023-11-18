@@ -12,16 +12,7 @@ var customer_scenes: Array[PackedScene] = [
 	preload("res://scenes/vegan.tscn")
 ]
 var next_spawn: Dictionary
-var spawn_queue: Array = [
-	{"customer_type_index": 0, "wait_time": 3.0},
-	{"customer_type_index": 1, "wait_time": 5.0},
-	{"customer_type_index": 2, "wait_time": 6.0},
-	{"customer_type_index": 1, "wait_time": 8.0},
-	{"customer_type_index": 1, "wait_time": 9.0},
-	{"customer_type_index": 0, "wait_time": 9.0},
-	{"customer_type_index": 2, "wait_time": 6.0},
-	{"customer_type_index": 0, "wait_time": 4.0},
-]
+var spawn_queue: Array = Global.LEVEL_SPAWNS[Global.current_level].duplicate()
 var spawned: Dictionary = {"spawn_dictionaries": [], "customer_sprites": [[], [], []]}
 @onready var ground_floor_top_edge: int = floori(
 	(
