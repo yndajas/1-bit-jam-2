@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=25 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/oat_milk.gd" id="11_hxc5e"]
 [ext_resource type="Texture2D" uid="uid://basiiw063bvy5" path="res://assets/images/sprites/icons/fix.png" id="11_vnu8y"]
 [ext_resource type="Script" path="res://scripts/icon_fixable.gd" id="12_0v48i"]
+[ext_resource type="Texture2D" uid="uid://ca4r4lhpywvmn" path="res://assets/images/sprites/icons/drink.png" id="15_lfk44"]
 [ext_resource type="Script" path="res://scripts/customer_spawner.gd" id="15_wywfk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
@@ -133,6 +134,11 @@ texture = ExtResource("8_vcwob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OatMilk"]
 shape = SubResource("RectangleShape2D_250ft")
+
+[node name="IconDrink" type="Sprite2D" parent="OatMilk"]
+visible = false
+position = Vector2(0, -24.5)
+texture = ExtResource("15_lfk44")
 
 [node name="Speaker" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(506, 287)
