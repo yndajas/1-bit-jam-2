@@ -1,7 +1,7 @@
 extends Node2D
 
 var customer_count: int = 0
-var fixables: int = 0
+var fixables_count: int = 0
 var spillage_scene: PackedScene = preload("res://scenes/spillage.tscn")
 var window_crack_scene: PackedScene = preload("res://scenes/window_crack.tscn")
 var time: float = 960.0
@@ -54,13 +54,13 @@ func _physics_process(delta: float) -> void:
 
 
 func on_coffee_machine_broken() -> void:
-	fixables += 1
+	fixables_count += 1
 
 
 func on_coffee_machine_fixed() -> void:
 	coffee_machine.icon_fix.stop_flash()
 	coffee_machine.icon_break.visible = true
-	fixables -= 1
+	fixables_count -= 1
 
 
 func on_customer_arrived() -> void:
@@ -87,7 +87,7 @@ func on_oat_milk_drunk() -> void:
 	spillage.player = player
 	spillage.connect("spillage_cleaned", on_spillage_cleaned)
 	oat_milk.add_sibling.call_deferred(spillage)
-	fixables += 1
+	fixables_count += 1
 
 
 func on_speaker_blasted() -> void:
@@ -111,16 +111,16 @@ func on_speaker_blasted() -> void:
 	window_crack.player = player
 	window_crack.connect("window_crack_fixed", on_window_crack_fixed)
 	speaker.add_sibling.call_deferred(window_crack)
-	fixables += 1
+	fixables_count += 1
 
 
 func on_spillage_cleaned() -> void:
 	oat_milk.on_spillage_cleaned()
-	fixables -= 1
+	fixables_count -= 1
 
 
 func on_window_crack_fixed() -> void:
-	fixables -= 1
+	fixables_count -= 1
 
 
 func spillage_position_bottom_left(spillage_half_width: int) -> Vector2:
