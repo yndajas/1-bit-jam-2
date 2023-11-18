@@ -15,7 +15,6 @@ func _physics_process(delta: float) -> void:
 		elif Input.is_action_just_pressed("interact"):
 			fixed = false
 			emit_signal("coffee_machine_broken")
-			print_debug("broken")
 
 
 func _on_body_entered(body: Node2D) -> void:

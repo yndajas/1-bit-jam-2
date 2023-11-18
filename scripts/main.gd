@@ -52,8 +52,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("exit"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
-	print_debug(fixables)
-
 
 func on_coffee_machine_broken() -> void:
 	fixables += 1

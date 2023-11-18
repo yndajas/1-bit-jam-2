@@ -13,6 +13,5 @@ func track_fixable(area: Area2D, delta: float, signal_to_emit: String) -> void:
 			area.fixed = true
 			area.emit_signal(signal_to_emit)
 			area.interaction_time = 0
-			print_debug("fixed")
 	elif Input.is_action_just_released("interact"):
 		area.interaction_time -= delta
