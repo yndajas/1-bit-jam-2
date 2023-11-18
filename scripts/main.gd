@@ -50,15 +50,15 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("exit"):
+		Global.load_menu_scene()
+
 	time += delta
 	update_clock()
 	check_if_level_finished(delta)
 
 	if level_finished:
 		get_tree().change_scene_to_file("res://scenes/result.tscn")
-
-	if Input.is_action_pressed("exit"):
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 
 func check_if_level_finished(delta: float) -> void:

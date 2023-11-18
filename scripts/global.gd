@@ -67,6 +67,10 @@ func load_main_scene() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 
+func load_menu_scene() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+
 func on_final_level() -> bool:
 	return current_level == LEVEL_SPAWNS.size() - 1
 

@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://cwmpl3bp3tpw6"]
+
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_spaqk"]
+[ext_resource type="Texture2D" uid="uid://dcs2e4iwrmot2" path="res://assets/images/sprites/keys/left_unpressed.png" id="2_ixyew"]
+[ext_resource type="Texture2D" uid="uid://cx8vidxflarlk" path="res://assets/images/sprites/keys/left_pressed.png" id="3_nbkof"]
+[ext_resource type="Texture2D" uid="uid://dq41lalewoxf" path="res://assets/images/sprites/keys/right_unpressed.png" id="4_ps1kv"]
+[ext_resource type="Texture2D" uid="uid://h3y8mp50f2qj" path="res://assets/images/sprites/keys/right_pressed.png" id="5_jyeng"]
+[ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="5_skig7"]
+[ext_resource type="Texture2D" uid="uid://cbhvpwr34yx28" path="res://assets/images/sprites/keys/space_unpressed.png" id="6_e8fpw"]
+[ext_resource type="PackedScene" uid="uid://bm1y41plkax3g" path="res://scenes/player.tscn" id="6_tf5wv"]
+[ext_resource type="Texture2D" uid="uid://k6sdh8v850wr" path="res://assets/images/sprites/keys/space_pressed.png" id="7_1y5rj"]
+[ext_resource type="PackedScene" uid="uid://qlwknee2gfdj" path="res://scenes/ground_floor.tscn" id="7_ar820"]
+[ext_resource type="Texture2D" uid="uid://3vrln6to1ovm" path="res://assets/images/sprites/keys/z_unpressed.png" id="8_1v428"]
+[ext_resource type="Texture2D" uid="uid://clibnycpmqq8u" path="res://assets/images/sprites/keys/z_pressed.png" id="9_021fd"]
+[ext_resource type="PackedScene" uid="uid://dmov21l3xumst" path="res://scenes/speaker.tscn" id="13_1v683"]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_spaqk")
+
+[node name="UnpressedLeft" type="Sprite2D" parent="."]
+position = Vector2(374, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ixyew")
+
+[node name="PressedLeft" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(374, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("3_nbkof")
+
+[node name="UnpresssedRight" type="Sprite2D" parent="."]
+position = Vector2(586, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ps1kv")
+
+[node name="PressedRight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(586, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("5_jyeng")
+
+[node name="UnpressedSpace" type="Sprite2D" parent="."]
+position = Vector2(480, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("6_e8fpw")
+
+[node name="PressedSpace" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(480, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("7_1y5rj")
+
+[node name="UnpressedZ" type="Sprite2D" parent="."]
+position = Vector2(402, 92)
+scale = Vector2(2, 2)
+texture = ExtResource("8_1v428")
+
+[node name="PressedZ" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(402, 92)
+scale = Vector2(2, 2)
+texture = ExtResource("9_021fd")
+
+[node name="ContinuePrompt" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 95.5
+offset_top = 216.0
+offset_right = 544.5
+offset_bottom = 240.0
+theme = ExtResource("5_skig7")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+bbcode_enabled = true
+text = "[center]Press enter to continue"
+
+[node name="Timer" type="Timer" parent="ContinuePrompt"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("6_tf5wv")]
+position = Vector2(193, 274)
+
+[node name="GroundFloor" parent="." instance=ExtResource("7_ar820")]
+
+[node name="Speaker" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_1v683")]
+position = Vector2(99, 321)
+player = NodePath("../Player")
+
+[connection signal="timeout" from="ContinuePrompt/Timer" to="." method="_on_timer_timeout"]

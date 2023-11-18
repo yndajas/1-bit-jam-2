@@ -16,6 +16,9 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("exit"):
+		Global.load_menu_scene()
+
 	if (
 		not star_fill_needed()
 		and not Global.on_final_level()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=25 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="PackedScene" uid="uid://qlwknee2gfdj" path="res://scenes/ground_floor.tscn" id="2_jxyd8"]
@@ -7,10 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bm1y41plkax3g" path="res://scenes/player.tscn" id="4_i60v0"]
 [ext_resource type="Texture2D" uid="uid://crwi0244e411l" path="res://assets/images/sprites/counter.png" id="5_uxhni"]
 [ext_resource type="Texture2D" uid="uid://bpkl0vucyjtb4" path="res://assets/images/sprites/coffee_machine.png" id="6_3662i"]
-[ext_resource type="Texture2D" uid="uid://cdwuw5kl2hp57" path="res://assets/images/sprites/speaker.png" id="7_dl1n7"]
 [ext_resource type="Script" path="res://scripts/coffee_machine.gd" id="7_wl6x2"]
 [ext_resource type="Texture2D" uid="uid://bwt6jdrehamh" path="res://assets/images/sprites/oat_milk.png" id="8_vcwob"]
-[ext_resource type="Script" path="res://scripts/speaker.gd" id="9_6v32g"]
 [ext_resource type="Texture2D" uid="uid://b0qtsctbixbr5" path="res://assets/images/sprites/table.png" id="9_bfqyb"]
 [ext_resource type="Texture2D" uid="uid://c6fxio5x7k4fl" path="res://assets/images/sprites/icons/break.png" id="10_eo1vq"]
 [ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="10_mf6td"]
@@ -22,8 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ca4r4lhpywvmn" path="res://assets/images/sprites/icons/drink.png" id="15_lfk44"]
 [ext_resource type="Script" path="res://scripts/customer_spawner.gd" id="15_wywfk"]
 [ext_resource type="AudioStream" uid="uid://dwu8k7bmrxpuj" path="res://assets/audio/sfx/drink_repeat.wav" id="18_1qkv0"]
-[ext_resource type="Texture2D" uid="uid://5hsuhkslx3et" path="res://assets/images/sprites/icons/blast.png" id="18_x3a57"]
-[ext_resource type="AudioStream" uid="uid://cs7q176888jmg" path="res://assets/audio/sfx/blast_repeat.wav" id="21_ikj14"]
+[ext_resource type="PackedScene" uid="uid://dmov21l3xumst" path="res://scenes/speaker.tscn" id="19_yxqro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxfe4"]
 size = Vector2(254, 3)
@@ -33,9 +30,6 @@ size = Vector2(51, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_250ft"]
 size = Vector2(26, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_isrpq"]
-size = Vector2(30, 17)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kpqj2")
@@ -142,25 +136,8 @@ texture = ExtResource("15_lfk44")
 [node name="DrinkSfxPlayer" type="AudioStreamPlayer" parent="OatMilk"]
 stream = ExtResource("18_1qkv0")
 
-[node name="Speaker" type="Area2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(506, 287)
-scale = Vector2(2, 2)
-script = ExtResource("9_6v32g")
+[node name="Speaker" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_yxqro")]
 player = NodePath("../Player")
-
-[node name="Sprite2D" type="Sprite2D" parent="Speaker"]
-texture = ExtResource("7_dl1n7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Speaker"]
-shape = SubResource("RectangleShape2D_isrpq")
-
-[node name="IconBlast" type="Sprite2D" parent="Speaker"]
-visible = false
-position = Vector2(0, -25)
-texture = ExtResource("18_x3a57")
-
-[node name="BlastSfxPlayer" type="AudioStreamPlayer" parent="Speaker"]
-stream = ExtResource("21_ikj14")
 
 [node name="DayText" type="RichTextLabel" parent="."]
 offset_left = 14.0
@@ -197,6 +174,4 @@ one_shot = true
 [connection signal="timeout" from="CoffeeMachine/IconFix/Timer" to="CoffeeMachine/IconFix" method="_on_timer_timeout"]
 [connection signal="body_entered" from="OatMilk" to="OatMilk" method="_on_body_entered"]
 [connection signal="body_exited" from="OatMilk" to="OatMilk" method="_on_body_exited"]
-[connection signal="body_entered" from="Speaker" to="Speaker" method="_on_body_entered"]
-[connection signal="body_exited" from="Speaker" to="Speaker" method="_on_body_exited"]
 [connection signal="timeout" from="CustomerSpawner/Timer" to="CustomerSpawner" method="_on_timer_timeout"]
