@@ -13,10 +13,6 @@
     - clean
   - on crack
     - tape
-- derender customer on signals:
-  - coffee machine broken: one professional
-  - oat milk drunk: one vegan
-  - speaker blasted: one old person
 - show result if success or time reaches 17:30
   - success condition: no customers, no breakages
   - score:
@@ -77,3 +73,7 @@
 - add customers
   - render customers in a queue on the ground floor using a predefined pattern
     (order and intervals)
+- derender customer on signals:
+  - coffee machine broken: one professional
+  - oat milk drunk: one vegan
+  - speaker blasted: one old person

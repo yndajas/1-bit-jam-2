@@ -1,6 +1,10 @@
 extends Node2D
 
-const SPEED: float = 50.0
+signal customer_arrived
+signal customer_left
+@export var coffee_machine: Area2D
+@export var oat_milk: Area2D
+@export var speaker: Area2D
 @export var ground_floor: StaticBody2D
 var customer_scenes: Array[PackedScene] = [
 	preload("res://scenes/old.tscn"),
@@ -30,6 +34,9 @@ var spawned: Dictionary = {"spawn_dictionaries": [], "customer_sprites": [[], []
 
 func _ready() -> void:
 	queue_next_spawn()
+	coffee_machine.connect("coffee_machine_broken", on_coffee_machine_broken)
+	oat_milk.connect("oat_milk_drunk", on_oat_milk_drunk)
+	speaker.connect("speaker_blasted", on_speaker_blasted)
 
 
 func _physics_process(delta: float) -> void:
@@ -49,7 +56,7 @@ func _physics_process(delta: float) -> void:
 			move_toward(
 				sprite.global_position.x,
 				playable_edge_gap - half_customer_slot_width - queue_position_offset,
-				SPEED * delta
+				Global.CUSTOMER_SPEED * delta
 			)
 		)
 
@@ -57,10 +64,43 @@ func _physics_process(delta: float) -> void:
 		sprite_indices[customer_type_index] += 1
 
 
+func on_coffee_machine_broken() -> void:
+	remove_customer(1)
+
+
+func on_customer_left() -> void:
+	emit_signal("customer_left")
+
+
+func on_oat_milk_drunk() -> void:
+	remove_customer(2)
+
+
+func on_speaker_blasted() -> void:
+	remove_customer(0)
+
+
 func queue_next_spawn() -> void:
 	next_spawn = spawn_queue.pop_front()
 	timer.wait_time = next_spawn.wait_time
 	timer.start()
+
+
+func remove_customer(customer_type_index: int) -> void:
+	if spawned.customer_sprites[customer_type_index].size():
+		var sprite: Sprite2D = spawned.customer_sprites[customer_type_index].pop_front()
+		sprite.connect("customer_left", on_customer_left)
+		sprite.leave()
+
+		var spawn_dictionary_index: int = 0
+		var found: bool = false
+		while not found:
+			var spawn_dictionary: Dictionary = spawned.spawn_dictionaries[spawn_dictionary_index]
+			if spawn_dictionary.customer_type_index == customer_type_index:
+				found = true
+				spawned.spawn_dictionaries.pop_at(spawn_dictionary_index)
+			else:
+				spawn_dictionary_index += 1
 
 
 func spawn_customer() -> void:
@@ -80,6 +120,8 @@ func spawn_customer() -> void:
 
 	spawned.spawn_dictionaries.push_back(next_spawn)
 	spawned.customer_sprites[customer_type_index].push_back(new_customer)
+
+	emit_signal("customer_arrived")
 
 
 func _on_timer_timeout() -> void:

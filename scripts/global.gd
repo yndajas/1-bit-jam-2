@@ -1,5 +1,6 @@
 extends Node
 
+const CUSTOMER_SPEED: float = 50.0
 const PLAYABLE_LEFT_EDGE: int = 0
 const PLAYABLE_RIGHT_EDGE: int = 640
 const PLAYABLE_TOP_EDGE: int = 0

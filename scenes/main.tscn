@@ -25,11 +25,11 @@ size = Vector2(254, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qagx8"]
 size = Vector2(51, 18)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_isrpq"]
-size = Vector2(30, 17)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_250ft"]
 size = Vector2(26, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isrpq"]
+size = Vector2(30, 17)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kpqj2")
@@ -100,18 +100,6 @@ texture = ExtResource("6_3662i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeMachine"]
 shape = SubResource("RectangleShape2D_qagx8")
 
-[node name="Speaker" type="Area2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(506, 287)
-scale = Vector2(2, 2)
-script = ExtResource("9_6v32g")
-player = NodePath("../Player")
-
-[node name="Sprite2D" type="Sprite2D" parent="Speaker"]
-texture = ExtResource("7_dl1n7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Speaker"]
-shape = SubResource("RectangleShape2D_isrpq")
-
 [node name="OatMilk" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(408, 288)
 scale = Vector2(2, 2)
@@ -129,6 +117,18 @@ texture = ExtResource("8_vcwob")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OatMilk"]
 shape = SubResource("RectangleShape2D_250ft")
 
+[node name="Speaker" type="Area2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(506, 287)
+scale = Vector2(2, 2)
+script = ExtResource("9_6v32g")
+player = NodePath("../Player")
+
+[node name="Sprite2D" type="Sprite2D" parent="Speaker"]
+texture = ExtResource("7_dl1n7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Speaker"]
+shape = SubResource("RectangleShape2D_isrpq")
+
 [node name="ClockText" type="RichTextLabel" parent="."]
 offset_left = 8.0
 offset_top = 16.0
@@ -138,8 +138,11 @@ theme = ExtResource("10_mf6td")
 theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
 text = "16:00"
 
-[node name="CustomerSpawner" type="Node2D" parent="." node_paths=PackedStringArray("ground_floor")]
+[node name="CustomerSpawner" type="Node2D" parent="." node_paths=PackedStringArray("coffee_machine", "oat_milk", "speaker", "ground_floor")]
 script = ExtResource("15_wywfk")
+coffee_machine = NodePath("../CoffeeMachine")
+oat_milk = NodePath("../OatMilk")
+speaker = NodePath("../Speaker")
 ground_floor = NodePath("../GroundFloor")
 
 [node name="Timer" type="Timer" parent="CustomerSpawner"]
@@ -147,8 +150,8 @@ one_shot = true
 
 [connection signal="body_entered" from="CoffeeMachine" to="CoffeeMachine" method="_on_body_entered"]
 [connection signal="body_exited" from="CoffeeMachine" to="CoffeeMachine" method="_on_body_exited"]
-[connection signal="body_entered" from="Speaker" to="Speaker" method="_on_body_entered"]
-[connection signal="body_exited" from="Speaker" to="Speaker" method="_on_body_exited"]
 [connection signal="body_entered" from="OatMilk" to="OatMilk" method="_on_body_entered"]
 [connection signal="body_exited" from="OatMilk" to="OatMilk" method="_on_body_exited"]
+[connection signal="body_entered" from="Speaker" to="Speaker" method="_on_body_entered"]
+[connection signal="body_exited" from="Speaker" to="Speaker" method="_on_body_exited"]
 [connection signal="timeout" from="CustomerSpawner/Timer" to="CustomerSpawner" method="_on_timer_timeout"]

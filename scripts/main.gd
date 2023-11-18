@@ -1,5 +1,6 @@
 extends Node2D
 
+var customer_count: int = 0
 var fixables: int = 0
 var spillage_scene: PackedScene = preload("res://scenes/spillage.tscn")
 var window_crack_scene: PackedScene = preload("res://scenes/window_crack.tscn")
@@ -13,6 +14,7 @@ var time: float = 960.0
 @onready var counter_half_width: int = floori($Counter.get_rect().size[0] / 2.0 * $Counter.scale.x)
 @onready var counter_left_edge: int = floori($Counter.position.x - counter_half_width)
 @onready var counter_right_edge: int = ceili($Counter.position.x + counter_half_width)
+@onready var customer_spawner: Node2D = $CustomerSpawner
 @onready var oat_milk: Area2D = $OatMilk
 @onready var player: CharacterBody2D = $Player
 @onready var speaker: Area2D = $Speaker
@@ -37,6 +39,8 @@ var time: float = 960.0
 func _ready() -> void:
 	coffee_machine.connect("coffee_machine_broken", on_coffee_machine_broken)
 	coffee_machine.connect("coffee_machine_fixed", on_coffee_machine_fixed)
+	customer_spawner.connect("customer_arrived", on_customer_arrived)
+	customer_spawner.connect("customer_left", on_customer_left)
 	oat_milk.connect("oat_milk_drunk", on_oat_milk_drunk)
 	speaker.connect("speaker_blasted", on_speaker_blasted)
 
@@ -57,6 +61,14 @@ func on_coffee_machine_broken() -> void:
 
 func on_coffee_machine_fixed() -> void:
 	fixables -= 1
+
+
+func on_customer_arrived() -> void:
+	customer_count += 1
+
+
+func on_customer_left() -> void:
+	customer_count -= 1
 
 
 func on_oat_milk_drunk() -> void:
