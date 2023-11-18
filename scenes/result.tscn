@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxaj3oy3e0w3t"]
+[gd_scene load_steps=12 format=3 uid="uid://bxaj3oy3e0w3t"]
 
 [ext_resource type="Script" path="res://scripts/result.gd" id="1_pg2s2"]
 [ext_resource type="Texture2D" uid="uid://c2hjytehg803c" path="res://assets/images/sprites/star_empty.png" id="2_y2rgw"]
 [ext_resource type="Texture2D" uid="uid://dkgcyahqqjh6g" path="res://assets/images/sprites/star_filled.png" id="3_v8q2n"]
 [ext_resource type="AudioStream" uid="uid://bx1avivx6f2dj" path="res://assets/audio/sfx/star_fill.wav" id="4_dpymb"]
+[ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="5_l43c4"]
 [ext_resource type="PackedScene" uid="uid://bm1y41plkax3g" path="res://scenes/player.tscn" id="5_p0gf4"]
 [ext_resource type="PackedScene" uid="uid://qlwknee2gfdj" path="res://scenes/ground_floor.tscn" id="6_ltlry"]
 [ext_resource type="Texture2D" uid="uid://crwi0244e411l" path="res://assets/images/sprites/counter.png" id="7_d2nxr"]
@@ -54,6 +55,21 @@ one_shot = true
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="StarFillTimer"]
 stream = ExtResource("4_dpymb")
 
+[node name="ContinuePrompt" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 95.5
+offset_top = 216.0
+offset_right = 544.5
+offset_bottom = 240.0
+theme = ExtResource("5_l43c4")
+theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
+bbcode_enabled = true
+text = "[center]Press enter to continue"
+
+[node name="Timer" type="Timer" parent="ContinuePrompt"]
+wait_time = 0.5
+one_shot = true
+
 [node name="Player" parent="." instance=ExtResource("5_p0gf4")]
 position = Vector2(193, 274)
 
@@ -85,3 +101,4 @@ scale = Vector2(2, 2)
 texture = ExtResource("10_n3w0s")
 
 [connection signal="timeout" from="StarFillTimer" to="." method="_on_star_fill_timer_timeout"]
+[connection signal="timeout" from="ContinuePrompt/Timer" to="." method="_on_continue_prompt_timer_timeout"]
