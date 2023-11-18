@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4whslg8x66a6"]
+[gd_scene load_steps=24 format=3 uid="uid://c4whslg8x66a6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kpqj2"]
 [ext_resource type="Texture2D" uid="uid://babu27eeg5k4q" path="res://assets/images/sprites/ground_floor.png" id="2_y1cll"]
@@ -12,8 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://bwt6jdrehamh" path="res://assets/images/sprites/oat_milk.png" id="8_vcwob"]
 [ext_resource type="Script" path="res://scripts/speaker.gd" id="9_6v32g"]
 [ext_resource type="Texture2D" uid="uid://b0qtsctbixbr5" path="res://assets/images/sprites/table.png" id="9_bfqyb"]
+[ext_resource type="Texture2D" uid="uid://c6fxio5x7k4fl" path="res://assets/images/sprites/icons/break.png" id="10_eo1vq"]
 [ext_resource type="Theme" uid="uid://xerbaooedi4j" path="res://assets/themes/theme.tres" id="10_mf6td"]
 [ext_resource type="Script" path="res://scripts/oat_milk.gd" id="11_hxc5e"]
+[ext_resource type="Texture2D" uid="uid://basiiw063bvy5" path="res://assets/images/sprites/icons/fix.png" id="11_vnu8y"]
+[ext_resource type="Script" path="res://scripts/icon_fixable.gd" id="12_0v48i"]
 [ext_resource type="Script" path="res://scripts/customer_spawner.gd" id="15_wywfk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr63u"]
@@ -100,6 +103,20 @@ texture = ExtResource("6_3662i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeMachine"]
 shape = SubResource("RectangleShape2D_qagx8")
 
+[node name="IconBreak" type="Sprite2D" parent="CoffeeMachine"]
+visible = false
+position = Vector2(0, -25.5)
+texture = ExtResource("10_eo1vq")
+
+[node name="IconFix" type="Sprite2D" parent="CoffeeMachine"]
+visible = false
+position = Vector2(2.08165e-12, -25.5)
+texture = ExtResource("11_vnu8y")
+script = ExtResource("12_0v48i")
+
+[node name="Timer" type="Timer" parent="CoffeeMachine/IconFix"]
+wait_time = 0.5
+
 [node name="OatMilk" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(408, 288)
 scale = Vector2(2, 2)
@@ -148,8 +165,11 @@ ground_floor = NodePath("../GroundFloor")
 [node name="Timer" type="Timer" parent="CustomerSpawner"]
 one_shot = true
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="CoffeeMachine" to="CoffeeMachine" method="_on_body_entered"]
 [connection signal="body_exited" from="CoffeeMachine" to="CoffeeMachine" method="_on_body_exited"]
+[connection signal="timeout" from="CoffeeMachine/IconFix/Timer" to="CoffeeMachine/IconFix" method="_on_timer_timeout"]
 [connection signal="body_entered" from="OatMilk" to="OatMilk" method="_on_body_entered"]
 [connection signal="body_exited" from="OatMilk" to="OatMilk" method="_on_body_exited"]
 [connection signal="body_entered" from="Speaker" to="Speaker" method="_on_body_entered"]

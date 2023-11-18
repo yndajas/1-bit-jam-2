@@ -58,6 +58,8 @@ func on_coffee_machine_broken() -> void:
 
 
 func on_coffee_machine_fixed() -> void:
+	coffee_machine.icon_fix.stop_flash()
+	coffee_machine.icon_break.visible = true
 	fixables -= 1
 
 
