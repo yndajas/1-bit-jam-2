@@ -2,7 +2,6 @@
 
 ## Stretch goals
 
-- shift queue end to left of counter, or left end of counter
 - update key tutorial per design
 - add level select
 - add music
@@ -25,6 +24,7 @@
 - add slow time accessibility option
 - add coyote time
 - add variable jump height
+- rename customer spawner customer manager?
 
 ## Done
 
@@ -82,3 +82,8 @@
 - add controls testing screen
 - render credits on score screen
 - add title
+
+## Post-jam done
+
+- add intro scene with details about gameplay and customers
+- shift queue end to left of counter, or left end of counter
