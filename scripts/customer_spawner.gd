@@ -3,6 +3,7 @@ extends Node2D
 signal customer_arrived
 signal customer_left
 @export var coffee_machine: Area2D
+@export var counter: Sprite2D
 @export var oat_milk: Area2D
 @export var speaker: Area2D
 @export var ground_floor: StaticBody2D
@@ -79,7 +80,9 @@ func queue_next_spawn() -> void:
 
 func maximum_queue_position(sprite: Sprite2D, spawned_index: int) -> int:
 	var queue_position_offset: int = floori(32 * sprite.scale.x * spawned_index)
-	return floori(speaker.global_position.x) - queue_position_offset
+	var counter_half_width = ceili(counter.get_rect().size[0] / 2.0 * counter.scale.x)
+	var counter_left_edge: int = counter.global_position.x - counter_half_width
+	return counter_left_edge - 32 - queue_position_offset
 
 
 func remove_customer(customer_type_index: int) -> void:

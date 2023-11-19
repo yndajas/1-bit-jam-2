@@ -157,9 +157,10 @@ theme = ExtResource("10_mf6td")
 theme_override_colors/default_color = Color(0.388235, 0.313726, 0.564706, 1)
 text = "16:00"
 
-[node name="CustomerSpawner" type="Node2D" parent="." node_paths=PackedStringArray("coffee_machine", "oat_milk", "speaker", "ground_floor")]
+[node name="CustomerSpawner" type="Node2D" parent="." node_paths=PackedStringArray("coffee_machine", "counter", "oat_milk", "speaker", "ground_floor")]
 script = ExtResource("15_wywfk")
 coffee_machine = NodePath("../CoffeeMachine")
+counter = NodePath("../Counter")
 oat_milk = NodePath("../OatMilk")
 speaker = NodePath("../Speaker")
 ground_floor = NodePath("../GroundFloor")
