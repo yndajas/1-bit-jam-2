@@ -51,8 +51,13 @@ Programming by [Ynda Jas (they/them)][ynda-jas]
 Sounds effects created with [Jsfxr][jsfxr] (JSON for all but one sound available
 at [jsfxr_settings.md][jsfxr-settings])
 
+Version select screen created with [JamPack][jampack], a tool made by
+[badcop][badcop]
+
 [1-bit-jam-2]: https://itch.io/jam/1-bit-jam-n2
+[badcop]: https://badcop.games
 [itch-io-page]: https://yndajas.itch.io/its-closing-time
+[jampack]: https://badcop.games/jampack
 [jsfxr]: https://sfxr.me
 [jsfxr-settings]: ./jsfxr_settings.md
 [pixel-font]: https://www.dafont.com/pixel-operator.font
