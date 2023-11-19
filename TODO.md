@@ -1,32 +1,33 @@
 # To do
 
-## Stretch goals
-
 - update key tutorial per design
+- switch order of intro and tutorial
+- add 0 stars sad sound effect
+- add retry option (retry or continue options with arrow and interact selection)
 - add level select
 - add music
 - speed time up if winnable state and no customers left to spawn
+- semi-randomise character types (make sure you don't just get one type, and
+  maybe make sure you get at least one of each type)
 - show speech before derendering customers:
   - professional: "I can't work without cofee!"
   - vegan: "Where are your vegan options!?"
   - old person: "**muffled discontent**"
 - make customers move at different speeds
-- make original scene a tutorial level then add another level with customemrs
-  randomly spawning until 17:00
 - add slider challenge to fix problems
-- add option to serve customer in queue which takes longer than 'breaking' and
-  fixing (or the other options remove all customers by type, whereas serving
-  removes one customer)
-- stop attracting customers by type based if coffee machine broken, no oat milk,
-  or speaker on; fix to start attracting them again (but what's the aim of
-  attracting them?)
-- add cooldown on breaking things
+- add clock graphic
 - add slow time accessibility option
-- add coyote time
-- add variable jump height
-- rename customer spawner customer manager?
+- rename customer spawner queue manager given it manages movement until they
+  leave the queue?
 
 ## Done
+
+### Post-jam
+
+- add intro scene with details about gameplay and customers
+- shift queue end to left of counter, or left end of counter
+
+### Jam
 
 - add floors and steps with collision detection (one way for steps)
 - add player with movement physics
@@ -83,7 +84,16 @@
 - render credits on score screen
 - add title
 
-## Post-jam done
+## Icebox
 
-- add intro scene with details about gameplay and customers
-- shift queue end to left of counter, or left end of counter
+- add option to serve customer in queue which takes longer than 'breaking' and
+  fixing (or the other options remove all customers by type, whereas serving
+  removes one customer)
+- stop attracting customers by type based if coffee machine broken, no oat milk,
+  or speaker on; fix to start attracting them again (but what's the aim of
+  attracting them?)
+- add cooldown on breaking things
+- add coyote time? probably not relevant given the current level design doesn't
+  have any platforms you could fall off but still need to jump
+- add variable jump height? also probably not useful given there are just four
+  jump spots of rouhgly equal height
