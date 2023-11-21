@@ -47,7 +47,7 @@ Art and level design by Weli Yu
 Programming and zero stars sound effect by [Ynda Jas (they/them)][ynda-jas]
 
 All other sound effects created with [Jsfxr][jsfxr] (JSON for all but one sound
-available at [jsfxr_settings.md][jsfxr-settings])
+available at [external_settings.md/#jsfxr][external-settings-jsfxr])
 
 [Font][pixel-font] by Jayvee Enaguas
 
@@ -59,7 +59,7 @@ Version select screen created with [JamPack][jampack], a tool made by
 [itch-io-page]: https://yndajas.itch.io/its-closing-time
 [jampack]: https://badcop.games/jampack
 [jsfxr]: https://sfxr.me
-[jsfxr-settings]: ./jsfxr_settings.md
+[external-settings-jsfxr]: ./external_settings.md/#jsfxr
 [pixel-font]: https://www.dafont.com/pixel-operator.font
 [playthrough]: https://www.youtube.com/watch?v=xOM1maETC3k
 [thumbnail]: ./assets/promo/screenshot_0.png

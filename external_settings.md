@@ -1,9 +1,29 @@
-# Jsfxr sound effect settings
+# External tool settings
+
+These are a record of the settings used in JamPack (for the version select
+screen) and Jsfxr (for most of the sound effects)
+
+## JamPack
+
+- Angle: roughly two thirds, where the text moves apart further than the other
+  steps
+- Animation amount: one step from the right
+- Divider width: one step from the left
+- Left colour: #7d83be
+- Right colour: #635090
+- Divider colour: #ffffff
+- Left title: Jam
+- Left subtitle: Rate this one
+- Right title: Postjam
+- Right subtitle: Latest release
+- Font family: Tahoma
+
+## Jsfxr
 
 These are the serialised JSON settings that were used to generate the sound
 effects (excluding the jump sound).
 
-## Break coffee machine
+### Break coffee machine
 
 ```json
 {
@@ -37,7 +57,7 @@ effects (excluding the jump sound).
 }
 ```
 
-## Fix coffee machine
+### Fix coffee machine
 
 ```json
 {
@@ -71,7 +91,7 @@ effects (excluding the jump sound).
 }
 ```
 
-## Drink oat milk
+### Drink oat milk
 
 ```json
 {
@@ -106,7 +126,7 @@ effects (excluding the jump sound).
 }
 ```
 
-## Clean spillage
+### Clean spillage
 
 ```json
 {
@@ -141,7 +161,7 @@ effects (excluding the jump sound).
 }
 ```
 
-## Blast music
+### Blast music
 
 ```json
 {
@@ -175,7 +195,7 @@ effects (excluding the jump sound).
 }
 ```
 
-## Tape window crack
+### Tape window crack
 
 ```json
 {
@@ -210,7 +230,7 @@ effects (excluding the jump sound).
 }
 ```
 
-## Star fill
+### Star fill
 
 ```json
 {
