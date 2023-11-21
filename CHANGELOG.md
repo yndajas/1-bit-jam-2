@@ -4,6 +4,7 @@
 
 - Updated key tutorial design
 - Switched order of tutorial and intro
+- Added zero stars sound effect
 
 ## 1.1.0 - 2023-11-19
 
