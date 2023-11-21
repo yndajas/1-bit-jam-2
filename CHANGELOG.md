@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.0 - 2023-11-20
+## 1.2.0 - 2023-11-21
 
 - Updated key tutorial design
 - Switched order of tutorial and intro
