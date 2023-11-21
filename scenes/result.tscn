@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxaj3oy3e0w3t"]
+[gd_scene load_steps=13 format=3 uid="uid://bxaj3oy3e0w3t"]
 
 [ext_resource type="Script" path="res://scripts/result.gd" id="1_pg2s2"]
 [ext_resource type="Texture2D" uid="uid://c2hjytehg803c" path="res://assets/images/sprites/star_empty.png" id="2_y2rgw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bpkl0vucyjtb4" path="res://assets/images/sprites/coffee_machine.png" id="8_ayfdx"]
 [ext_resource type="Texture2D" uid="uid://bwt6jdrehamh" path="res://assets/images/sprites/oat_milk.png" id="9_tdt1o"]
 [ext_resource type="Texture2D" uid="uid://cdwuw5kl2hp57" path="res://assets/images/sprites/speaker.png" id="10_n3w0s"]
+[ext_resource type="AudioStream" uid="uid://c4s68o58blpk8" path="res://assets/audio/sfx/zero_stars.wav" id="12_uduh8"]
 
 [node name="Result" type="Node2D"]
 script = ExtResource("1_pg2s2")
@@ -112,6 +113,11 @@ position = Vector2(506, 287)
 scale = Vector2(2, 2)
 texture = ExtResource("10_n3w0s")
 
+[node name="ZeroStarsSfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_uduh8")
+volume_db = 4.0
+
 [connection signal="timeout" from="StarFillTimer" to="." method="_on_star_fill_timer_timeout"]
 [connection signal="timeout" from="ContinuePrompt/Timer" to="." method="_on_continue_prompt_timer_timeout"]
 [connection signal="timeout" from="Credits/Timer" to="." method="_on_credits_timer_timeout"]
+[connection signal="finished" from="ZeroStarsSfxPlayer" to="." method="_on_zero_stars_sfx_player_finished"]

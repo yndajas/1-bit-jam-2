@@ -10,13 +10,14 @@ var stars_filled: int = 0
 @onready var filled_stars: Array[Sprite2D] = [$FilledStar0, $FilledStar1, $FilledStar2]
 @onready var sfx_player: AudioStreamPlayer = $StarFillTimer/SfxPlayer
 @onready var star_fill_timer: Timer = $StarFillTimer
+@onready var zero_stars_sfx_player: AudioStreamPlayer = $ZeroStarsSfxPlayer
 
 
 func _ready() -> void:
 	if star_fill_needed():
 		start_star_fill_timer()
 	else:
-		render_continue_or_credits()
+		zero_stars_sfx_player.play()
 
 
 func _physics_process(_delta: float) -> void:
@@ -36,10 +37,7 @@ func render_continue_or_credits() -> void:
 	if Global.on_final_level():
 		credits_timer.start()
 	else:
-		if score() > 0:
-			continue_prompt_timer.start()
-		else:
-			continue_prompt.visible = true
+		continue_prompt_timer.start()
 
 
 func score() -> int:
@@ -71,3 +69,7 @@ func _on_star_fill_timer_timeout() -> void:
 		start_star_fill_timer()
 	else:
 		render_continue_or_credits()
+
+
+func _on_zero_stars_sfx_player_finished() -> void:
+	render_continue_or_credits()

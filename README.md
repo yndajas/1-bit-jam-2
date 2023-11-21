@@ -44,12 +44,12 @@ Concept and direction by Weli Yu and [Ynda Jas (they/them)][ynda-jas]
 
 Art and level design by Weli Yu
 
-Programming by [Ynda Jas (they/them)][ynda-jas]
+Programming and zero stars sound effect by [Ynda Jas (they/them)][ynda-jas]
+
+All other sound effects created with [Jsfxr][jsfxr] (JSON for all but one sound
+available at [jsfxr_settings.md][jsfxr-settings])
 
 [Font][pixel-font] by Jayvee Enaguas
-
-Sounds effects created with [Jsfxr][jsfxr] (JSON for all but one sound available
-at [jsfxr_settings.md][jsfxr-settings])
 
 Version select screen created with [JamPack][jampack], a tool made by
 [badcop][badcop]
