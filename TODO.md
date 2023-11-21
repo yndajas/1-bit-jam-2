@@ -1,10 +1,10 @@
 # To do
 
-- switch order of intro and tutorial
-- add 0 stars sad sound effect
+- reduce volume across the board
 - add retry option (retry or continue options with arrow and interact selection)
 - add level select
 - add music
+- add sound effects and music volume settings
 - speed time up if winnable state and no customers left to spawn
 - semi-randomise character types (make sure you don't just get one type, and
   maybe make sure you get at least one of each type)
@@ -25,6 +25,10 @@
 
 - add intro scene with details about gameplay and customers
 - shift queue end to left of counter, or left end of counter
+- update key tutorial per design (small platform, keys location, continue text
+  location)
+- switch order of intro and tutorial
+- add 0 stars sad sound effect
 
 ### Jam
 
@@ -96,5 +100,3 @@
   have any platforms you could fall off but still need to jump
 - add variable jump height? also probably not useful given there are just four
   jump spots of rouhgly equal height
-- update key tutorial per design (small platform, keys location, continue text
-  location)
