@@ -9,7 +9,7 @@
 - semi-randomise character types (make sure you don't just get one type, and
   maybe make sure you get at least one of each type)
 - show speech before derendering customers:
-  - professional: "I can't work without cofee!"
+  - professional: "I can't work without coffee!"
   - vegan: "Where are your vegan options!?"
   - old person: "**muffled discontent**"
 - make customers move at different speeds
