@@ -1,4 +1,4 @@
-# It's Closing Time
+# It's Closing Time!
 
 It's almost 5pm! Find creative ways to get rid of your customers so you can
 close up, but be careful: you can't end your shift until the shop is all fixed
